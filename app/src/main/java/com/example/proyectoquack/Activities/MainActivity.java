@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.proyectoquack.DB.DBQueries;
 
+import com.example.proyectoquack.Entidades.Usuario;
 import com.example.proyectoquack.R;
 
 public class MainActivity extends AppCompatActivity{
@@ -57,10 +58,10 @@ public class MainActivity extends AppCompatActivity{
         if (!str_username.isEmpty() && !str_password.isEmpty()) {
             if (conductor.isChecked()) {
                 if(DBQueries.LoginConductor(str_username,str_password,this, comingback)){
-                    Intent ConductorActivity = new Intent(this, UsuarioActivity.class);
-                    Conductor conductor = DBQueries.getConductor(str_username, this);
-                    ConductorActivity.putExtra("conductor_entidad", conductor);
-                    startActivity(ConductorActivity);
+                    Intent UsuarioActivity = new Intent(this, UsuarioActivity.class);
+                    Usuario conductor = DBQueries.getUsuario(str_username, this);
+                    UsuarioActivity.putExtra("usuario_entidad", conductor);
+                    startActivity(UsuarioActivity);
                     this.finish();
                 }
 

@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
 
+import com.example.proyectoquack.Entidades.Usuario;
+
 
 public class DBQueries {
     public static boolean LoginConductor(String username, String password, Context context, boolean comingback){ //comingback es para iniciar automaticamente sesión
@@ -35,14 +37,14 @@ public class DBQueries {
 
 
 
-    public static Conductor getConductor(String username, Context context){
+    public static Usuario getUsuario(String username, Context context){
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(context, "db", null, 1);
         SQLiteDatabase db = admin.getWritableDatabase();
         String query = "SELECT username, nombre, password, correo, telefono, rut, sexo FROM conductor WHERE username = '" + username +"'";
         Cursor cursor = db.rawQuery(query, null);
         if (cursor.moveToFirst()){
-            Conductor conductor = new Conductor(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6));
-            return conductor;
+            Usuario usuario = new Usuario(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6));
+            return usuario;
         }
         return null;
     }
