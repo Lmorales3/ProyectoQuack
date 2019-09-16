@@ -1,21 +1,19 @@
 package com.example.proyectoquack.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.proyectoquack.Entidades.Conductor;
+import com.example.proyectoquack.Entidades.Usuario;
 import com.example.proyectoquack.R;
 
 public class UsuarioActivity extends AppCompatActivity {
 
-    private Conductor conductor;
+    private Usuario conductor;
     private TextView HeaderConductor_username;
     private TextView HeaderConductor_nombre;
     private TextView usuario;
@@ -29,7 +27,7 @@ public class UsuarioActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-        conductor=(Conductor)getIntent().getSerializableExtra("conductor_entidad");
+        conductor=(Usuario) getIntent().getSerializableExtra("conductor_entidad");
 
         usuario.setText("Bienvenido conductor: " + conductor.getUsername());
 

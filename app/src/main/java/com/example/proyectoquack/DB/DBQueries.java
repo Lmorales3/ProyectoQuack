@@ -5,8 +5,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
 
-import com.example.proyectoquack.Entidades.Conductor;
-
 
 public class DBQueries {
     public static boolean LoginConductor(String username, String password, Context context, boolean comingback){ //comingback es para iniciar automaticamente sesión

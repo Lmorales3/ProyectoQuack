@@ -12,11 +12,8 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.example.proyectoquack.DB.DBQueries;
-import com.example.proyectoquack.Entidades.Conductor;
 
 import com.example.proyectoquack.R;
-
-import java.io.Serializable;
 
 public class MainActivity extends AppCompatActivity{
 
