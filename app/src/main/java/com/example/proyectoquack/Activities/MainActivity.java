@@ -35,8 +35,8 @@ public class MainActivity extends AppCompatActivity{
         logo = (ImageView)findViewById(R.id.MainActivity_logo);
         username = (EditText)findViewById(R.id.MainActivity_username);
         password = (EditText)findViewById(R.id.MainActivity_password);
-        conductor = (RadioButton)findViewById(R.id.MainActivity_conductor_check);
-        pasajero = (RadioButton)findViewById(R.id.MainActivity_pasajero_check);
+      /*  conductor = (RadioButton)findViewById(R.id.MainActivity_usuario_check);
+        */
 
         RecuperarDatos();
         if(autoLogin)AutoLogin();
