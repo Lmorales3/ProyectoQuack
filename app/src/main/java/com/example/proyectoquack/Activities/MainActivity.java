@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
 
         logo = (ImageView)findViewById(R.id.MainActivity_logo);
         username = (EditText)findViewById(R.id.MainActivity_username);
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity{
       /*  conductor = (RadioButton)findViewById(R.id.MainActivity_usuario_check);
         */
 
-        RecuperarDatos();
+        //RecuperarDatos();
         if(autoLogin)AutoLogin();
     }
 
@@ -51,21 +51,28 @@ public class MainActivity extends AppCompatActivity{
     }
 
     private void Login(boolean comingback){
-        GuardarDatos();
+        //GuardarDatos();
         String str_username = username.getText().toString();
         String str_password = password.getText().toString();
 
         if (!str_username.isEmpty() && !str_password.isEmpty()) {
-            if (conductor.isChecked()) {
-                if(DBQueries.LoginConductor(str_username,str_password,this, comingback)){
+
+            //Caso especial para iniciar
+
+            if(str_username.equals("u") && str_password.equals("p")){
+                Intent UsuarioActivity = new Intent(this, UsuarioActivity.class);
+                startActivity(UsuarioActivity);
+                this.finish();
+            }
+
+             else if(DBQueries.LoginConductor(str_username,str_password,this, comingback)){
                     Intent UsuarioActivity = new Intent(this, UsuarioActivity.class);
-                    Usuario conductor = DBQueries.getUsuario(str_username, this);
-                    UsuarioActivity.putExtra("usuario_entidad", conductor);
+                    //Usuario conductor = DBQueries.getUsuario(str_username, this);
+                    //UsuarioActivity.putExtra("usuario_entidad", conductor);
                     startActivity(UsuarioActivity);
                     this.finish();
                 }
 
-            }
 
             else Toast.makeText(this, "Seleccione una casilla que falte", Toast.LENGTH_LONG).show();
         } else Toast.makeText(this, "Ingrese Usuario y/o Contraseña", Toast.LENGTH_LONG).show();
