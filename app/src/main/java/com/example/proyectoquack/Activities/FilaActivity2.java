@@ -1,13 +1,20 @@
 package com.example.proyectoquack.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.RatingBar;
+import android.widget.TextView;
 
 import com.example.proyectoquack.R;
 
 public class FilaActivity2 extends AppCompatActivity {
+    private Float valFila;
+    private RatingBar ratingFila;
+    private String sssss;
+    private TextView valText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,22 +24,32 @@ public class FilaActivity2 extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        RatingBar ratingFila = (RatingBar) findViewById(R.id.ratingFila); // initiate a rating bar
-        Float ratingNumber = ratingFila.getRating(); // get rating number from a rating bar
+        Intent prev = getIntent();
+        String lafila = prev.getStringExtra("quefila");
+        ratingFila = (RatingBar) findViewById(R.id.ratingFila);
+        TextView infoText = (TextView) findViewById(R.id.text_view_id);
+        infoText.setText("Evalúa " + lafila + " de 0 (vacía) a 10 (repleta):");
+        valFila = ratingFila.getRating();
+        valText = (TextView) findViewById(R.id.textFila);
+        //sssss = String.format("%f",valFila);
+        valText.setText("" + (int)(valFila*2));//sssss);
+        //RatingBar ratingFila = (RatingBar) findViewById(R.id.ratingFila); // initiate a rating bar
+        //valFila = ratingFila.getRating(); // get rating number from a rating bar
 
 
-        /*
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        ratingFila.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                valText.setText("" + (int)(ratingFila.getRating()*2));
             }
         });
-         */
     }
 
+    public void clickRating(View view){
+        Intent i = new Intent(this, FilaActivity.class);
+        i.putExtra("nota", ""+(int)(ratingFila.getRating()*2));
+        startActivity(i);
+    }
 
 
 }

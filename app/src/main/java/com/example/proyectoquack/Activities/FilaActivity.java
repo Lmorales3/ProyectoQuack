@@ -1,5 +1,6 @@
 package com.example.proyectoquack.Activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -8,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.RatingBar;
+import android.widget.Toast;
 
 import com.example.proyectoquack.R;
 
@@ -18,6 +20,17 @@ public class FilaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.elegir_fila);
+
+        Intent intent = getIntent();
+        if (intent.hasExtra("nota")) {
+            Context context = getApplicationContext();
+            CharSequence text = "Se envió valoración de " + intent.getStringExtra("nota");;
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
+
         /*setContentView(R.layout.activity_fila);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -38,8 +51,21 @@ public class FilaActivity extends AppCompatActivity {
          */
     }
 
-    public void onClickEv(View view){
-        startActivity(new Intent(this, FilaActivity2.class));
+    public void onClickJ(View view){
+        Intent i = new Intent(this, FilaActivity2.class);
+        i.putExtra("quefila", "la fila Junaeb");
+        pasaActivity(i);
+        //startActivity(i);
+        //this.finish();
+    }
+    public void onClickO(View view){
+        Intent i = new Intent(this, FilaActivity2.class);
+        i.putExtra("quefila", "la otra fila");
+        pasaActivity(i);
+    }
+
+    public void pasaActivity(Intent i){
+        startActivity(i);
     }
 
 

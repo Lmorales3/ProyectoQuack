@@ -11,8 +11,10 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Activities.FilaActivity"
-            android:label="@string/title_activity_fila"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:label="@string/title_activity_fila"></activity>
+        <activity
+            android:name=".Activities.FilaActivity2"
+            android:label="@string/title_activity_fila"></activity>
         <activity android:name=".Activities.RegistroActivity" />
         <activity android:name=".Activities.UsuarioActivity" />
         <activity android:name=".Activities.MainActivity">
