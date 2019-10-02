@@ -46,9 +46,10 @@ public class FilaActivity2 extends AppCompatActivity {
     }
 
     public void clickRating(View view){
-        Intent i = new Intent(this, FilaActivity.class);
-        i.putExtra("nota", ""+(int)(ratingFila.getRating()*2));
+        Intent i = new Intent(this, EstadoFilaActivity.class);
+        i.putExtra("nota", (int)(ratingFila.getRating()*2));
         startActivity(i);
+        this.finish();
     }
 
 
