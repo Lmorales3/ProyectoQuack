@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity{
         autoLogin=sharedPreferences.getBoolean("AutoLogin", false);
 
     }
-
+/*
     private void GuardarDatos(){
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity{
         editor.putString("Password", password.getText().toString());
         editor.putBoolean("AutoLogin", true);
         editor.apply();
-    }
+    }*/
 
     public List<Comida> comidaTodos(){
         Gson gson = new GsonBuilder().serializeNulls().create();

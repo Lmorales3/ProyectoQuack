@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.proyectoquack.DB.ModelApi;
 import com.example.proyectoquack.Entidades.Usuario;
 import com.example.proyectoquack.R;
 
@@ -22,6 +23,7 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
     private TextView correo;
     private TextView telefono;
     private TextView preferencias;
+    private ModelApi modelApi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +46,7 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
         correo = (TextView)findViewById(R.id.PerfilPasajeroActivity_correo);
         telefono = (TextView)findViewById(R.id.PerfilPasajeroActivity_telefono);
         preferencias = (TextView)findViewById(R.id.PerfilPasajeroActivity_preferencias);
-
+/*
         username.setText("Username: " + usuario.getUsername());
         nombre.setText("Nombre: " + usuario.getNombre());
         rut.setText("Matricula: " + usuario.getRut());
@@ -52,7 +54,7 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
         correo.setText("Correo: " + usuario.getCorreo());
         telefono.setText("Teléfono: " + usuario.getTelefono());
         //if(usuario.getPreferencias() != null) preferencias.setText("Preferencias: " + usuario.getPreferencias());
-
+*/
     }
 
 
