@@ -46,6 +46,7 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
         correo = (TextView)findViewById(R.id.PerfilPasajeroActivity_correo);
         telefono = (TextView)findViewById(R.id.PerfilPasajeroActivity_telefono);
         preferencias = (TextView)findViewById(R.id.PerfilPasajeroActivity_preferencias);
+
 /*
         username.setText("Username: " + usuario.getUsername());
         nombre.setText("Nombre: " + usuario.getNombre());
