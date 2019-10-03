@@ -10,7 +10,12 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 import com.example.proyectoquack.DB.AdminSQLiteOpenHelper;
 import com.example.proyectoquack.DB.DBQueries;
+import com.example.proyectoquack.DB.ModelApi;
+import com.example.proyectoquack.Entidades.Comida;
+import com.example.proyectoquack.Entidades.Usuario;
 import com.example.proyectoquack.R;
+
+import java.util.ArrayList;
 
 public class RegistroActivity extends AppCompatActivity {
 
@@ -29,10 +34,13 @@ public class RegistroActivity extends AppCompatActivity {
     private RadioButton hombre;
     private RadioButton mujer;
 
+    private ModelApi modelApi;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
+        modelApi = new ModelApi();
 
         nombre = (EditText)findViewById(R.id.RegistroActivity_Nombre);
         apellidoPaterno = (EditText)findViewById(R.id.RegistroActivity_ApellidoPaterno);
@@ -63,9 +71,6 @@ public class RegistroActivity extends AppCompatActivity {
         String str_rut1 = rut1.getText().toString();
         String str_rut2 = rut2.getText().toString();
 
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "db", null, 1);
-        SQLiteDatabase db = admin.getWritableDatabase();
-
         if(!str_nombre.isEmpty() && !str_apellidoPaterno.isEmpty()
                 && !str_apellidoMaterno.isEmpty() && !str_username.isEmpty()
                 && !str_password1.isEmpty() && !str_password2.isEmpty()
@@ -73,40 +78,13 @@ public class RegistroActivity extends AppCompatActivity {
                 && !str_rut1.isEmpty() && !str_rut2.isEmpty()){
             if((hombre.isChecked() || mujer.isChecked()) ){
                 if(str_password1.compareTo(str_password2)==0){
-                    ContentValues values = new ContentValues();
-                    if(hombre.isChecked()) {
-                        values.put("username", str_username);
-                        values.put("nombre", str_nombre + " " + str_apellidoPaterno + " " + str_apellidoMaterno);
-                        values.put("password", str_password1);
-                        values.put("correo", str_correo);
-                        values.put("telefono", str_telefono);
-                        values.put("rut", str_rut1 + "-" + str_rut2);
-                        if(hombre.isChecked())values.put("sexo", "Masculino");
-                        else values.put("sexo", "Femenino");
 
-                        if(!DBQueries.isConductorRegistrado(str_username, this)){
-                            db.insert("usuario", null, values);
-                            ContentValues v = new ContentValues();
-                            v.put("username", str_username );
-                          //  db.insert("vehiculo", null, v);
-                            Toast.makeText(this, "Registro Exitoso", Toast.LENGTH_LONG).show();
-                            this.finish();
-                        }
-                        else Toast.makeText(this, "Nombre de usuario no disponible", Toast.LENGTH_LONG).show();
-                        db.close();
-                    }
-                    else{
-                        values.put("username", str_username);
-                        values.put("nombre", str_nombre + " " + str_apellidoPaterno + " " + str_apellidoMaterno);
-                        values.put("password", str_password1);
-                        values.put("correo", str_correo);
-                        values.put("telefono", str_telefono);
-                        values.put("rut", str_rut1 + "-" + str_rut2);
-                        if(hombre.isChecked())values.put("sexo", "Masculino");
-                        else values.put("sexo", "Femenino");
+                    String nombre = str_nombre + str_apellidoPaterno + str_apellidoMaterno;
+                    Usuario usuario = new Usuario(str_username, nombre, str_password1, str_correo,
+                            "0/0/0", "Carrera",
+                            (float)0.0, new ArrayList<Comida>());
 
-
-                    }
+                    Usuario usuario1 = modelApi.crearUsuario(usuario);
                 }
                 else Toast.makeText(this,"Las contraseñas no coinciden", Toast.LENGTH_LONG).show();
             }

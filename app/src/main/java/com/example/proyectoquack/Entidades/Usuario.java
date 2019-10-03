@@ -14,7 +14,9 @@ public class Usuario implements Serializable {
     private float quack_puntos;
     private List<Comida> almuerzos_preferidos;
 
-    public Usuario(String nombre_usuario, String nombre_real, String password, String correo, String fecha_nacimiento, String carrera, float quack_puntos, List<Comida> almuerzos_preferidos) {
+    public Usuario(String nombre_usuario, String nombre_real, String password, String correo,
+                   String fecha_nacimiento, String carrera, float quack_puntos,
+                   List<Comida> almuerzos_preferidos) {
         this.nombre_usuario = nombre_usuario;
         this.nombre_real = nombre_real;
         this.password = password;
