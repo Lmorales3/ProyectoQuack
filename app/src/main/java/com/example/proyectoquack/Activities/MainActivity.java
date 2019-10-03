@@ -95,8 +95,14 @@ public class MainActivity extends AppCompatActivity{
                 String content = "";
                 content += comida.getNombre_comida();
 
-
                 Toast.makeText(this, content, Toast.LENGTH_LONG).show();
+
+                Comida comida1 = new Comida("Mechada con pure", (float) 0.0, true);
+                Comida comida2 = modelApi.crearComida(comida1);
+                String content2 = "";
+                content2 += comida2.getNombre_comida();
+
+                Toast.makeText(this, content2, Toast.LENGTH_LONG).show();
             }
 
              else if(DBQueries.LoginConductor(str_username,str_password,this, comingback)){
