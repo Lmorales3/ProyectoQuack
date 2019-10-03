@@ -7,7 +7,7 @@
     tools:context="Activities.MainActivity">
 
     <ImageView
-        android:id="@+id/MainActivity_logo"
+        android:filaId="@+filaId/MainActivity_logo"
         android:layout_width="295dp"
         android:layout_height="247dp"
         android:layout_marginTop="48dp"
@@ -18,7 +18,7 @@
         app:srcCompat="@drawable/patopato" />
 
     <EditText
-        android:id="@+id/MainActivity_username"
+        android:filaId="@+filaId/MainActivity_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -30,10 +30,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+filaId/imageView" />
 
     <EditText
-        android:id="@+id/MainActivity_password"
+        android:filaId="@+filaId/MainActivity_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -43,15 +43,15 @@
         android:hint="Contraseña"
         android:inputType="textPassword"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/MainActivity_ingresar"
+        app:layout_constraintBottom_toTopOf="@+filaId/MainActivity_ingresar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MainActivity_username"
+        app:layout_constraintTop_toBottomOf="@+filaId/MainActivity_username"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/MainActivity_ingresar"
+        android:filaId="@+filaId/MainActivity_ingresar"
         android:layout_width="144dp"
         android:layout_height="54dp"
         android:layout_marginTop="24dp"
@@ -62,7 +62,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MainActivity_password" />
+        app:layout_constraintTop_toBottomOf="@+filaId/MainActivity_password" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -74,11 +74,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MainActivity_ingresar"
+        app:layout_constraintTop_toBottomOf="@+filaId/MainActivity_ingresar"
         app:layout_constraintVertical_bias="1.0">
 
         <TextView
-            android:id="@+id/MainActivity_registro1"
+            android:filaId="@+filaId/MainActivity_registro1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -87,7 +87,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/MainActivity_registro2"
+            android:filaId="@+filaId/MainActivity_registro2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -100,7 +100,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imageView"
+        android:filaId="@+filaId/imageView"
         android:layout_width="300dp"
         android:layout_height="95dp"
         android:layout_marginStart="8dp"
@@ -111,7 +111,7 @@
         android:src="@drawable/patoudec"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MainActivity_logo" />
+        app:layout_constraintTop_toBottomOf="@+filaId/MainActivity_logo" />
 
 </android.support.constraint.ConstraintLayout>
 

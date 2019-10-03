@@ -1,36 +1,32 @@
 package com.example.proyectoquack.Entidades;
 
 public class Fila {
-    private String id;
+    private String filaId;
     private String user;
-    private String fecha;
-    private String hora;
+    private String fecha_hora;
     private float puntaje;
     private boolean es_junaeb;
     private boolean es_normal;
 
-    public Fila(String id, String user, String fecha, String hora, float puntaje,
+    public Fila(String filaId, String user, String fecha_hora, float puntaje,
                 boolean es_junaeb, boolean es_normal){
-        this.id = id;
+        this.filaId = filaId;
         this.user = user;
-        this.fecha = fecha;
-        this.hora = hora;
+        this.fecha_hora = fecha_hora;
         this.puntaje = puntaje;
         this.es_junaeb = es_junaeb;
         this.es_normal = es_normal;
     }
 
-    public String getId(){return id;}
+    public String getFilaId(){return filaId;}
     public String getUser(){ return user; }
-    public String getFecha(){ return fecha; }
-    public String getHora(){ return  hora; }
+    public String getFecha_hora(){ return fecha_hora; }
     public float getPuntaje(){ return  puntaje; }
     public boolean es_junaeb(){ return  es_junaeb; }
     public boolean es_normal(){ return  es_normal; }
 
     public void setUser(String user){ this.user = user; }
-    public void setFecha(String f){ this.fecha = f; }
-    public void setHora(String h){ this.hora = h; }
+    public void setFecha_hora(String f){ this.fecha_hora = f; }
     public void setPuntaje(float p){ this.puntaje = p; }
     public void setEs_junaeb(boolean b){ this.es_junaeb = b; }
     public void setEs_normal(boolean b){ this.es_normal = b; }
