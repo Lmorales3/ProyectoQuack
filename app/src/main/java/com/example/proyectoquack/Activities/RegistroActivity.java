@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
-
 import com.example.proyectoquack.DB.AdminSQLiteOpenHelper;
 import com.example.proyectoquack.DB.DBQueries;
 import com.example.proyectoquack.R;
@@ -25,8 +24,8 @@ public class RegistroActivity extends AppCompatActivity {
     private EditText telefono;
     private EditText rut1;
     private EditText rut2;
-    private RadioButton conductor;
-    private RadioButton pasajero;
+   // private RadioButton conductor;
+   // private RadioButton pasajero;
     private RadioButton hombre;
     private RadioButton mujer;
 
@@ -45,8 +44,8 @@ public class RegistroActivity extends AppCompatActivity {
         telefono = (EditText)findViewById(R.id.RegistroActivity_Telefono);
         rut1 = (EditText)findViewById(R.id.RegistroActivity_Rut1);
         rut2 = (EditText)findViewById(R.id.RegistroActivity_Rut2);
-        conductor = (RadioButton)findViewById(R.id.RegistroActivity_Conductor);
-        pasajero = (RadioButton)findViewById(R.id.RegistroActivity_Pasajero);
+        //conductor = (RadioButton)findViewById(R.id.RegistroActivity_Conductor);
+       // pasajero = (RadioButton)findViewById(R.id.RegistroActivity_Pasajero);
         hombre = (RadioButton)findViewById(R.id.RegistroActivity_SexoM);
         mujer = (RadioButton)findViewById(R.id.RegistroActivity_SexoF);
 
@@ -72,10 +71,10 @@ public class RegistroActivity extends AppCompatActivity {
                 && !str_password1.isEmpty() && !str_password2.isEmpty()
                 && !str_correo.isEmpty() && !str_telefono.isEmpty()
                 && !str_rut1.isEmpty() && !str_rut2.isEmpty()){
-            if((hombre.isChecked() || mujer.isChecked()) && (conductor.isChecked() || pasajero.isChecked())){
+            if((hombre.isChecked() || mujer.isChecked()) ){
                 if(str_password1.compareTo(str_password2)==0){
                     ContentValues values = new ContentValues();
-                    if(conductor.isChecked()) {
+                    if(hombre.isChecked()) {
                         values.put("username", str_username);
                         values.put("nombre", str_nombre + " " + str_apellidoPaterno + " " + str_apellidoMaterno);
                         values.put("password", str_password1);
@@ -86,10 +85,10 @@ public class RegistroActivity extends AppCompatActivity {
                         else values.put("sexo", "Femenino");
 
                         if(!DBQueries.isConductorRegistrado(str_username, this)){
-                            db.insert("conductor", null, values);
+                            db.insert("usuario", null, values);
                             ContentValues v = new ContentValues();
                             v.put("username", str_username );
-                            db.insert("vehiculo", null, v);
+                          //  db.insert("vehiculo", null, v);
                             Toast.makeText(this, "Registro Exitoso", Toast.LENGTH_LONG).show();
                             this.finish();
                         }

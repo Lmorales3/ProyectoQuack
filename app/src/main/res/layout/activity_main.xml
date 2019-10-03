@@ -10,7 +10,7 @@
         android:id="@+id/MainActivity_logo"
         android:layout_width="295dp"
         android:layout_height="247dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.456"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +54,7 @@
         android:id="@+id/MainActivity_ingresar"
         android:layout_width="144dp"
         android:layout_height="54dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="44dp"
         android:background="#FFC107"
         android:onClick="Ingresar"
         android:text="Iniciar Sesión"
@@ -75,7 +75,7 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/MainActivity_ingresar"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.714">
 
         <TextView
             android:id="@+id/MainActivity_registro1"
@@ -105,11 +105,11 @@
         android:layout_height="95dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:src="@drawable/patoudec"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/MainActivity_logo" />
 

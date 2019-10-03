@@ -10,6 +10,7 @@ public class Usuario implements Serializable {
     private String telefono;
     private String rut;
     private String sexo;
+
     public Usuario (String username, String nombre, String password, String correo, String telefono, String rut, String sexo){
         this.username=username;
         this.nombre=nombre;
