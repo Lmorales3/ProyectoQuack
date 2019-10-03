@@ -6,8 +6,9 @@
         android:drawable="@drawable/fi1" />
     <item
         android:id="@android:id/secondaryProgress"
-        android:drawable="@drawable/fi1" />
+        android:drawable="@drawable/fi2" />
     <item
         android:id="@android:id/progress"
         android:drawable="@drawable/fi3" />
+    
 </layer-list>

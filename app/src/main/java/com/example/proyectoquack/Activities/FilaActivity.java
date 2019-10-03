@@ -45,14 +45,14 @@ public class FilaActivity extends AppCompatActivity {
 
     public void onClickJ(View view){
         Intent i = new Intent(this, FilaActivity2.class);
-        i.putExtra("quefila", "la fila Junaeb");
+        i.putExtra("quefila", true);
         pasaActivity(i);
         //startActivity(i);
         //this.finish();
     }
     public void onClickO(View view){
         Intent i = new Intent(this, FilaActivity2.class);
-        i.putExtra("quefila", "la otra fila");
+        i.putExtra("quefila", false);
         pasaActivity(i);
     }
 

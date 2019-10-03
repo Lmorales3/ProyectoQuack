@@ -25,10 +25,16 @@ public class FilaActivity2 extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         Intent prev = getIntent();
-        String lafila = prev.getStringExtra("quefila");
+        boolean fi = prev.getBooleanExtra("quefila", false);
+        String lafila;
+        if (fi){
+            lafila = getString(R.string.junaeb);
+        }else{
+            lafila= getString(R.string.nonaeb);
+        }
         ratingFila = (RatingBar) findViewById(R.id.ratingFila);
         TextView infoText = (TextView) findViewById(R.id.text_view_id);
-        infoText.setText("Evalúa " + lafila + " de 0 (vacía) a 10 (repleta):");
+        infoText.setText("Evalúa la fila " + lafila + " de 0 (vacía) a 10 (repleta):");
         valFila = ratingFila.getRating();
         valText = (TextView) findViewById(R.id.textFila);
         //sssss = String.format("%f",valFila);
