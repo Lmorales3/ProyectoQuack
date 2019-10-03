@@ -2,6 +2,7 @@ package com.example.proyectoquack.Activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.StrictMode;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,8 +14,24 @@ import android.widget.Toast;
 
 import com.example.proyectoquack.DB.DBQueries;
 
+import com.example.proyectoquack.DB.JsonApi;
+import com.example.proyectoquack.DB.ModelApi;
+import com.example.proyectoquack.Entidades.Comida;
 import com.example.proyectoquack.Entidades.Usuario;
 import com.example.proyectoquack.R;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.io.IOException;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -25,12 +42,19 @@ public class MainActivity extends AppCompatActivity{
     private RadioButton pasajero;
     private ImageView logo;
     private boolean autoLogin=false;
+    private ModelApi modelApi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //getSupportActionBar().hide();
+
+        modelApi = new ModelApi();
 
         logo = (ImageView)findViewById(R.id.MainActivity_logo);
         username = (EditText)findViewById(R.id.MainActivity_username);
@@ -63,6 +87,22 @@ public class MainActivity extends AppCompatActivity{
                 Intent UsuarioActivity = new Intent(this, UsuarioActivity.class);
                 startActivity(UsuarioActivity);
                 this.finish();
+            }
+
+            else if(str_username.equals("p") && str_password.equals("p")){
+                BigInteger a = new BigInteger("5629499534213120");
+                Comida comida = modelApi.obtenerComida(a);
+                String content = "";
+                content += comida.getNombre_comida();
+
+                Toast.makeText(this, content, Toast.LENGTH_LONG).show();
+
+                Comida comida1 = new Comida("Mechada con pure", (float) 0.0, true);
+                Comida comida2 = modelApi.crearComida(comida1);
+                String content2 = "";
+                content2 += comida2.getNombre_comida();
+
+                Toast.makeText(this, content2, Toast.LENGTH_LONG).show();
             }
 
              else if(DBQueries.LoginConductor(str_username,str_password,this, comingback)){
@@ -102,6 +142,25 @@ public class MainActivity extends AppCompatActivity{
         editor.putString("Password", password.getText().toString());
         editor.putBoolean("AutoLogin", true);
         editor.apply();
+    }
+
+    public List<Comida> comidaTodos(){
+        Gson gson = new GsonBuilder().serializeNulls().create();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://proyecto-quack.appspot.com/")
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build();
+
+        JsonApi jsonApi = retrofit.create(JsonApi.class);
+        Call<List<Comida>> call = jsonApi.comidaTodos();
+        try {
+            return call.execute().body();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return new ArrayList<Comida>();
     }
 
 }

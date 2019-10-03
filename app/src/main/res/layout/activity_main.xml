@@ -114,6 +114,3 @@
         app:layout_constraintTop_toBottomOf="@+id/MainActivity_logo" />
 
 </android.support.constraint.ConstraintLayout>
-
-
-
