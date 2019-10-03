@@ -3,14 +3,14 @@ package com.example.proyectoquack.Entidades;
 public class Publicacion {
     private Usuario user;
     private String pubId;
-    private String nombre_comida;
+    private Comida nombre_comida;
     private float valoracion;
     private String contenido;
     private int likes;
     private int dislikes;
     private String fecha_hora;
 
-    public Publicacion(String pubId, Usuario user, String nombre_comida, float valoracion,
+    public Publicacion(String pubId, Usuario user, Comida nombre_comida, float valoracion,
                        String contenido, int likes, int dislikes, String fecha_hora ){
         this.pubId = pubId;
         this.user = user;
@@ -22,9 +22,20 @@ public class Publicacion {
         this.fecha_hora = fecha_hora;
     }
 
+    public Publicacion(){
+        this.pubId = "0";
+        this.user = new Usuario();
+        this.nombre_comida = new Comida();
+        this.valoracion = (float) 0.0;
+        this.contenido = "0";
+        this.likes = 0;
+        this.dislikes = 0;
+        this.fecha_hora = "0";
+    }
+
     public String getID(){ return pubId; }
     public Usuario getUser(){ return user; }
-    public String getNombre_comida(){ return nombre_comida; }
+    public Comida getNombre_comida(){ return nombre_comida; }
     public float getValoracion(){ return valoracion; }
     public String getContenido(){ return contenido; }
     public int getLikes(){ return likes; }

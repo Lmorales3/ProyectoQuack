@@ -13,15 +13,26 @@ public class Usuario implements Serializable {
     private float quack_puntos;
     private List<Comida> almuerzos_preferidos;
 
-    public Usuario (String nombre_usuario, String nombre_real, String password, String correo, String fecha_nacimiento, String carrera, float quack_puntos, List<Comida> almuerzos_preferidos){
+    public Usuario(String nombre_usuario, String nombre_real, String password, String correo, String fecha_nacimiento, String carrera, float quack_puntos, List<Comida> almuerzos_preferidos) {
         this.nombre_usuario = nombre_usuario;
         this.nombre_real = nombre_real;
-        this.password=password;
-        this.correo=correo;
+        this.password = password;
+        this.correo = correo;
         this.fecha_nacimiento = fecha_nacimiento;
         this.carrera = carrera;
-        this.quack_puntos=quack_puntos;
+        this.quack_puntos = quack_puntos;
         this.almuerzos_preferidos = almuerzos_preferidos;
+    }
+
+    public Usuario() {
+        this.nombre_usuario = "0";
+        this.nombre_real = "0";
+        this.password = "0";
+        this.correo = "0";
+        this.fecha_nacimiento = "0";
+        this.carrera = "0";
+        this.quack_puntos = (float) 0.0;
+        this.almuerzos_preferidos = new ArrayList<Comida>();
     }
 
     public String getNombre_usuario(){

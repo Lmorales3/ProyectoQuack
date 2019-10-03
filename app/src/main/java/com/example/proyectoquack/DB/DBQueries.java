@@ -43,8 +43,8 @@ public class DBQueries {
         String query = "SELECT username, nombre, password, correo, telefono, rut, sexo FROM conductor WHERE username = '" + username +"'";
         Cursor cursor = db.rawQuery(query, null);
         if (cursor.moveToFirst()){
-            Usuario usuario = new Usuario(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6));
-            return usuario;
+            //Usuario usuario = new Usuario(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6));
+            //return usuario;
         }
         return null;
     }

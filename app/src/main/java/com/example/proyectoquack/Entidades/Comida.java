@@ -11,6 +11,12 @@ public class Comida {
         this.nombre_comida = nombre_comida;
     }
 
+    public Comida(){
+        this.comida_del_dia = false;
+        this.puntaje_promedio = (float) 0.0;
+        this.nombre_comida = "0";
+    }
+
     public String getNombre_comida(){ return nombre_comida; }
     public float getPuntaje_promedio(){ return puntaje_promedio; }
     public boolean isComida_del_dia(){ return  comida_del_dia; }

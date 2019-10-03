@@ -7,6 +7,10 @@ public class Value {
         this.value = value;
     }
 
+    public Value() {
+        this.value = (float) 0.0;
+    }
+
     public float getValue() {
         return value;
     }

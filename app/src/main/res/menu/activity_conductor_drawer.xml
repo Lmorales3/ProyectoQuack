@@ -5,23 +5,23 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:filaId="@+filaId/ConductorActivity_perfil"
+            android:id="@+id/ConductorActivity_perfil"
             android:icon="@drawable/perfil_icono"
             android:title="Perfil" />
         <item
-            android:filaId="@+filaId/ConductorActivity_crearviaje"
+            android:id="@+id/ConductorActivity_crearviaje"
             android:icon="@drawable/crearviaje_icono"
             android:title="Crear Viaje" />
         <item
-            android:filaId="@+filaId/ConductorActivity_verviajes"
+            android:id="@+id/ConductorActivity_verviajes"
             android:icon="@drawable/ver_icono"
             android:title="Mis Viajes" />
         <item
-            android:filaId="@+filaId/ConductorActivity_verreservas"
+            android:id="@+id/ConductorActivity_verreservas"
             android:icon="@drawable/ver_icono"
             android:title="Reservas Solicitadas" />
         <item
-            android:filaId="@+filaId/ConductorActivity_salir"
+            android:id="@+id/ConductorActivity_salir"
             android:icon="@drawable/salir_icono"
             android:title="Cerrar Sesión" />
     </group>

@@ -9,7 +9,7 @@
 
 
     <EditText
-        android:filaId="@+filaId/RegistroActivity_Nombre"
+        android:id="@+id/RegistroActivity_Nombre"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:filaId="@+filaId/RegistroActivity_ApellidoPaterno"
+        android:id="@+id/RegistroActivity_ApellidoPaterno"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -32,10 +32,10 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+filaId/RegistroActivity_Nombre" />
+        app:layout_constraintTop_toBottomOf="@+id/RegistroActivity_Nombre" />
 
     <EditText
-        android:filaId="@+filaId/RegistroActivity_ApellidoMaterno"
+        android:id="@+id/RegistroActivity_ApellidoMaterno"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -44,10 +44,10 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+filaId/RegistroActivity_ApellidoPaterno" />
+        app:layout_constraintTop_toBottomOf="@+id/RegistroActivity_ApellidoPaterno" />
 
     <EditText
-        android:filaId="@+filaId/RegistroActivity_Usuario"
+        android:id="@+id/RegistroActivity_Usuario"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -56,10 +56,10 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+filaId/RegistroActivity_ApellidoMaterno" />
+        app:layout_constraintTop_toBottomOf="@+id/RegistroActivity_ApellidoMaterno" />
 
     <EditText
-        android:filaId="@+filaId/RegistroActivity_Contraseña1"
+        android:id="@+id/RegistroActivity_Contraseña1"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -68,10 +68,10 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+filaId/RegistroActivity_Usuario" />
+        app:layout_constraintTop_toBottomOf="@+id/RegistroActivity_Usuario" />
 
     <EditText
-        android:filaId="@+filaId/RegistroActivity_Contrasena2"
+        android:id="@+id/RegistroActivity_Contrasena2"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -80,10 +80,10 @@
         android:backgroundTint="#3F51B5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+filaId/RegistroActivity_Contraseña1" />
+        app:layout_constraintTop_toBottomOf="@+id/RegistroActivity_Contraseña1" />
 
     <EditText
-        android:filaId="@+filaId/RegistroActivity_Email"
+        android:id="@+id/RegistroActivity_Email"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -92,10 +92,10 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+filaId/RegistroActivity_Contrasena2" />
+        app:layout_constraintTop_toBottomOf="@+id/RegistroActivity_Contrasena2" />
 
     <EditText
-        android:filaId="@+filaId/RegistroActivity_Telefono"
+        android:id="@+id/RegistroActivity_Telefono"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -104,19 +104,19 @@
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+filaId/RegistroActivity_Email" />
+        app:layout_constraintTop_toBottomOf="@+id/RegistroActivity_Email" />
 
     <LinearLayout
-        android:filaId="@+filaId/RegistroActivity_RUT"
+        android:id="@+id/RegistroActivity_RUT"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+filaId/RegistroActivity_Telefono">
+        app:layout_constraintTop_toBottomOf="@+id/RegistroActivity_Telefono">
 
         <EditText
-            android:filaId="@+filaId/RegistroActivity_Rut1"
+            android:id="@+id/RegistroActivity_Rut1"
             android:layout_width="153dp"
             android:backgroundTint="#3F51B5"
             android:layout_height="wrap_content"
@@ -125,13 +125,13 @@
             android:inputType="number" />
 
         <TextView
-            android:filaId="@+filaId/textView4"
+            android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="-" />
 
         <EditText
-            android:filaId="@+filaId/RegistroActivity_Rut2"
+            android:id="@+id/RegistroActivity_Rut2"
             android:layout_width="148dp"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -141,29 +141,29 @@
     </LinearLayout>
 
     <RadioGroup
-        android:filaId="@+filaId/RegistroActivity_Sexo"
+        android:id="@+id/RegistroActivity_Sexo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+filaId/RegistroActivity_BotonRegistro"
-        app:layout_constraintEnd_toStartOf="@+filaId/RegistroActivity_TipoUsuario"
+        app:layout_constraintBottom_toTopOf="@+id/RegistroActivity_BotonRegistro"
+        app:layout_constraintEnd_toStartOf="@+id/RegistroActivity_TipoUsuario"
         app:layout_constraintHorizontal_bias="0.752"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+filaId/RegistroActivity_RUT"
+        app:layout_constraintTop_toBottomOf="@+id/RegistroActivity_RUT"
         app:layout_constraintVertical_bias="0.0">
 
         <RadioButton
-            android:filaId="@+filaId/RegistroActivity_SexoM"
+            android:id="@+id/RegistroActivity_SexoM"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:buttonTint="#3F51B5"
             android:text="Hombre" />
 
         <RadioButton
-            android:filaId="@+filaId/RegistroActivity_SexoF"
+            android:id="@+id/RegistroActivity_SexoF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:buttonTint="#3F51B5"
@@ -171,17 +171,17 @@
     </RadioGroup>
 
     <RadioGroup
-        android:filaId="@+filaId/RegistroActivity_TipoUsuario"
+        android:id="@+id/RegistroActivity_TipoUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="80dp"
         android:layout_marginRight="80dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+filaId/RegistroActivity_RUT">
+        app:layout_constraintTop_toBottomOf="@+id/RegistroActivity_RUT">
 
         <RadioButton
-            android:filaId="@+filaId/RegistroActivity_Conductor"
+            android:id="@+id/RegistroActivity_Conductor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -190,7 +190,7 @@
             android:text="Conductor" />
 
         <RadioButton
-            android:filaId="@+filaId/RegistroActivity_Pasajero"
+            android:id="@+id/RegistroActivity_Pasajero"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -200,7 +200,7 @@
     </RadioGroup>
 
     <Button
-        android:filaId="@+filaId/RegistroActivity_BotonRegistro"
+        android:id="@+id/RegistroActivity_BotonRegistro"
         android:layout_width="122dp"
         android:layout_height="52dp"
         android:layout_marginTop="24dp"
@@ -211,7 +211,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+filaId/RegistroActivity_TipoUsuario" />
+        app:layout_constraintTop_toBottomOf="@+id/RegistroActivity_TipoUsuario" />
 
 
 </android.support.constraint.ConstraintLayout>

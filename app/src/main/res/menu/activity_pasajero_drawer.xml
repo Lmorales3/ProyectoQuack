@@ -5,19 +5,19 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:filaId="@+filaId/PasajeroActivity_perfil"
+            android:id="@+id/PasajeroActivity_perfil"
             android:icon="@drawable/perfil_icono"
             android:title="Perfil" />
         <item
-            android:filaId="@+filaId/PasajeroActivity_buscarviaje"
+            android:id="@+id/PasajeroActivity_buscarviaje"
             android:icon="@drawable/buscarviaje_icono"
             android:title="Buscar Viaje" />
         <item
-            android:filaId="@+filaId/PasajeroActivity_verreservas"
+            android:id="@+id/PasajeroActivity_verreservas"
             android:icon="@drawable/ver_icono"
             android:title="Mis Reservas" />
         <item
-            android:filaId="@+filaId/PasajeroActivity_salir"
+            android:id="@+id/PasajeroActivity_salir"
             android:icon="@drawable/salir_icono"
             android:title="Cerrar Sesión" />
     </group>

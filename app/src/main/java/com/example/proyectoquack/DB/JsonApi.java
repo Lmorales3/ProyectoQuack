@@ -7,6 +7,7 @@ import com.example.proyectoquack.Entidades.Publicacion;
 import com.example.proyectoquack.Entidades.Usuario;
 import com.example.proyectoquack.Entidades.Value;
 
+import java.math.BigInteger;
 import java.util.List;
 
 import retrofit2.Call;
@@ -21,7 +22,7 @@ public interface JsonApi {
     // Metodos de Comentario
 
     @GET("comentario/obtener/{id}")
-    Call<Comentario> obtenerComentario(@Path("id") int id);
+    Call<Comentario> obtenerComentario(@Path("id") BigInteger id);
 
     @POST("comentario/crear")
     Call<Comentario> crearComentario(@Body Comentario comentario);
@@ -32,7 +33,7 @@ public interface JsonApi {
     Call<Comida> crearComida(@Body Comida comida);
 
     @GET("comida/obtener/{id}")
-    Call<Comida> obtenerComida(@Path("id") int id);
+    Call<Comida> obtenerComida(@Path("id") BigInteger id);
 
     @GET("comida/obtener/comida_del_dia")
     Call<List <Comida>> comidaDelDia();
@@ -46,7 +47,7 @@ public interface JsonApi {
     );
 
     @GET("comida/mejor_comida/{n}")
-    Call<List <Comida>> mejorComida(@Path("n") int n);
+    Call<List <Comida>> mejorComida(@Path("n") BigInteger n);
 
     @GET("comida/todos")
     Call<List <Comida>> comidaTodos();
@@ -57,7 +58,7 @@ public interface JsonApi {
     Call<Fila> crearFila(@Body Fila fila);
 
     @GET("fila/obtener/{id}")
-    Call<Fila> obtenerFila(@Path("id") int id);
+    Call<Fila> obtenerFila(@Path("id") BigInteger id);
 
     @GET("fila/mean_value/{fecha_hora}")
     Call<Value> mean_value(@Path("fecha_hora") String fecha_hora);
@@ -68,11 +69,11 @@ public interface JsonApi {
     Call<Publicacion> crearPublicacion(@Body Publicacion publicacion);
 
     @GET("publicacion/obtener/{id}")
-    Call<Publicacion> obtenerPublicacion(@Path("id") int id);
+    Call<Publicacion> obtenerPublicacion(@Path("id") BigInteger id);
 
     @GET("publicacion/AddLike/{id}/{like}")
     Call<Publicacion> Like(
-            @Path("id") int id,
+            @Path("id") BigInteger id,
             @Path("like") boolean like
     );
 
@@ -82,7 +83,7 @@ public interface JsonApi {
     Call<Usuario> crearUsuario(@Body Usuario usuario);
 
     @GET("usuario/obtener/{id}")
-    Call<Usuario> obtenerUsuario(@Path("id") int id);
+    Call<Usuario> obtenerUsuario(@Path("id") BigInteger id);
 
     @GET("usuario/best_launch/{username}")
     Call<Comida> best_launch(@Path("username") String username);
