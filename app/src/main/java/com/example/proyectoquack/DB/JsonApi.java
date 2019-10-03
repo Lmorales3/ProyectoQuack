@@ -82,8 +82,8 @@ public interface JsonApi {
     @POST("usuario/crear")
     Call<Usuario> crearUsuario(@Body Usuario usuario);
 
-    @GET("usuario/obtener/{id}")
-    Call<Usuario> obtenerUsuario(@Path("id") BigInteger id);
+    @GET("usuario/obtener/{username}")
+    Call<Usuario> obtenerUsuario(@Path("id") String username);
 
     @GET("usuario/best_launch/{username}")
     Call<Comida> best_launch(@Path("username") String username);

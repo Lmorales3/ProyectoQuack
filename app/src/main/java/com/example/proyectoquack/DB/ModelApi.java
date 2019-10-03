@@ -177,8 +177,8 @@ public class ModelApi {
         }
     };
 
-    public Usuario obtenerUsuario(BigInteger id){
-        Call<Usuario> call = jsonApi.obtenerUsuario(id);
+    public Usuario obtenerUsuario(String username){
+        Call<Usuario> call = jsonApi.obtenerUsuario(username);
         try {
             return call.execute().body();
         } catch (IOException e) {
