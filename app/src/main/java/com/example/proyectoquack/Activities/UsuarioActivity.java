@@ -45,7 +45,7 @@ public class UsuarioActivity extends AppCompatActivity {
 
         //conductor=(Usuario) getIntent().getSerializableExtra("usuario_entidad");
 
-        //usuario.setText("Bienvenido: " + conductor.getUsername());
+        //usuario.setText("Bienvenido: " + conductor.getNombre_usuario());
         //usuario.setText("Bienvenido: usuario");
 
     }
