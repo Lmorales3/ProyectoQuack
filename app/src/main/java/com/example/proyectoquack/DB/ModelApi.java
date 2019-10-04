@@ -117,7 +117,7 @@ public class ModelApi {
         } catch (IOException e) {
             return new Fila();
         }
-    };
+    }
 
     public Fila obtenerFila(BigInteger id){
         Call<Fila> call = jsonApi.obtenerFila(id);
@@ -128,14 +128,14 @@ public class ModelApi {
         }
     };
 
-    public Value mean_value(String fecha_hora){
-        Call<Value> call = jsonApi.mean_value(fecha_hora);
+    public Value mean_value(){
+        Call<Value> call = jsonApi.mean_value();
         try {
             return call.execute().body();
         } catch (IOException e) {
             return new Value();
         }
-    };
+    }
 
     //  Metodos de Publicacion
 
