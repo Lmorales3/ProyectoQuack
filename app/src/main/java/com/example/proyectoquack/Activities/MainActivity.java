@@ -105,18 +105,19 @@ public class MainActivity extends AppCompatActivity{
                 Toast.makeText(this, content2, Toast.LENGTH_LONG).show();
             }
 
-            Usuario usuario = modelApi.obtenerUsuario(str_username);
-            //usuario.getPassword().equals(str_password)
-            if (!usuario.getNombre_usuario().equals("0")){
-                Intent UsuarioActivity = new Intent(this, UsuarioActivity.class);
-                UsuarioActivity.putExtra("usuario_entidad", usuario);
-                startActivity(UsuarioActivity);
-                this.finish();
+            else{
+                Usuario usuario = modelApi.obtenerUsuario(str_username);
+                if (!usuario.getNombre_usuario().equals("0") && usuario.getPassword().equals(str_password)){
+                    Intent UsuarioActivity = new Intent(this, UsuarioActivity.class);
+                    UsuarioActivity.putExtra("usuario_entidad", usuario);
+                    startActivity(UsuarioActivity);
+                    this.finish();
+                }
+                else{
+                    Toast.makeText(this, "Usuario y/o Contraseña Incorrecta", Toast.LENGTH_LONG).show();
+                }
             }
 
-            else{
-                Toast.makeText(this, "Usuario y/o Contraseña Incorrecta", Toast.LENGTH_LONG).show();
-            }
         } else Toast.makeText(this, "Ingrese Usuario y/o Contraseña", Toast.LENGTH_LONG).show();
     }
 
