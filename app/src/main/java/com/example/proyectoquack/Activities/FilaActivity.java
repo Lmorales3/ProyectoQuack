@@ -23,24 +23,6 @@ public class FilaActivity extends AppCompatActivity {
 
 
 
-        /*setContentView(R.layout.activity_fila);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        RatingBar ratingFila = (RatingBar) findViewById(R.id.ratingFila); // initiate a rating bar
-        Float ratingNumber = ratingFila.getRating(); // get rating number from a rating bar
-*/
-
-        /*
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-         */
     }
 
     public void onClickJ(View view){
@@ -57,7 +39,16 @@ public class FilaActivity extends AppCompatActivity {
     }
 
     public void pasaActivity(Intent i){
+
+        ////
+        Intent intent = getIntent();
+        i.putExtra("cj",intent.getIntExtra("cj",0));
+        i.putExtra("pj", intent.getFloatExtra("pj",0));
+        i.putExtra("cg",intent.getIntExtra("cg",0));
+        i.putExtra("pg", intent.getFloatExtra("pg",0));
+
         startActivity(i);
+
     }
 
 

@@ -1,5 +1,6 @@
 package com.example.proyectoquack.Activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,14 +8,22 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.proyectoquack.DB.ModelApi;
+import com.example.proyectoquack.Entidades.Fila;
+import com.example.proyectoquack.Entidades.Usuario;
 import com.example.proyectoquack.R;
+
+import java.math.BigInteger;
 
 public class FilaActivity2 extends AppCompatActivity {
     private Float valFila;
     private RatingBar ratingFila;
-    private String sssss;
     private TextView valText;
+
+    private ModelApi modelApi;
+    private Fila fila;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +32,7 @@ public class FilaActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_fila);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         Intent prev = getIntent();
         boolean fi = prev.getBooleanExtra("quefila", false);
@@ -37,10 +47,14 @@ public class FilaActivity2 extends AppCompatActivity {
         infoText.setText("Evalúa la fila " + lafila + " de 0 (vacía) a 10 (repleta):");
         valFila = ratingFila.getRating();
         valText = (TextView) findViewById(R.id.textFila);
-        //sssss = String.format("%f",valFila);
-        valText.setText("" + (int)(valFila*2));//sssss);
-        //RatingBar ratingFila = (RatingBar) findViewById(R.id.ratingFila); // initiate a rating bar
-        //valFila = ratingFila.getRating(); // get rating number from a rating bar
+        valText.setText("" + (int)(valFila*2));
+
+        modelApi = new ModelApi();
+        BigInteger a = new BigInteger("66");
+        fila = new Fila("404", new Usuario(), "0", 0, fi, !fi);
+        //fila.setEs_junaeb(fi);
+        //fila.setEs_normal(!fi);
+        //fila = modelApi.crearFila(new Fila());
 
 
         ratingFila.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
@@ -49,11 +63,37 @@ public class FilaActivity2 extends AppCompatActivity {
                 valText.setText("" + (int)(ratingFila.getRating()*2));
             }
         });
+
+
+        Context context = getApplicationContext();
+        CharSequence text = "id " + fila.getFilaId();
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, text, duration);
+        //toast.show();
+
     }
 
     public void clickRating(View view){
         Intent i = new Intent(this, EstadoFilaActivity.class);
         i.putExtra("nota", (int)(ratingFila.getRating()*2));
+
+        fila.setPuntaje(ratingFila.getRating()*2);
+        modelApi.crearFila(fila);
+
+        Context context = getApplicationContext();
+        CharSequence text = "did " + fila.getFilaId();
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, text, duration);
+        //toast.show();
+
+        ////
+        Intent intent = getIntent();
+        i.putExtra("cj",intent.getIntExtra("cj",0));
+        i.putExtra("pj", intent.getFloatExtra("pj",0));
+        i.putExtra("cg",intent.getIntExtra("cg",0));
+        i.putExtra("pg", intent.getFloatExtra("pg",0));
+        i.putExtra("quefila", intent.getBooleanExtra("quefila", true));
+
         startActivity(i);
         this.finish();
     }

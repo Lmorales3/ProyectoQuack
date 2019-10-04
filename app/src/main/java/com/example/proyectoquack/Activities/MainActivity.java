@@ -84,9 +84,13 @@ public class MainActivity extends AppCompatActivity{
             //Caso especial para iniciar
 
             if(str_username.equals("u") && str_password.equals("p")){
-                /*Intent UsuarioActivity = new Intent(this, UsuarioActivity.class);
+                Intent UsuarioActivity = new Intent(this, UsuarioActivity.class);
                 startActivity(UsuarioActivity);
-                */Intent FilaActivity = new Intent(this, EstadoFilaActivity.class);
+                this.finish();
+            }
+
+            else if(str_username.equals("f") && str_password.equals("f")){
+                Intent FilaActivity = new Intent(this, EstadoFilaActivity.class);
                 startActivity(FilaActivity);
                 this.finish();
             }
