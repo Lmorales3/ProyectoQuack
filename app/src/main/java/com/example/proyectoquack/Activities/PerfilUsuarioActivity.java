@@ -15,7 +15,6 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
 
     private Usuario usuario;
     private ImageView foto;
-
     private TextView username;
     private TextView nombre;
     private TextView rut;
@@ -30,6 +29,7 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil_usuario);
         usuario= (Usuario)getIntent().getSerializableExtra("usuario_entidad");
+        modelApi= new ModelApi();
 
         username = (TextView)findViewById(R.id.PerfilPasajeroActivity_username);
         nombre = (TextView)findViewById(R.id.PerfilPasajeroActivity_nombre);
@@ -39,27 +39,12 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
         telefono = (TextView)findViewById(R.id.PerfilPasajeroActivity_telefono);
         preferencias = (TextView)findViewById(R.id.PerfilPasajeroActivity_preferencias);
 
-        username = (TextView)findViewById(R.id.PerfilPasajeroActivity_username);
-        nombre = (TextView)findViewById(R.id.PerfilPasajeroActivity_nombre);
-        rut = (TextView)findViewById(R.id.PerfilPasajeroActivity_rut);
-        sexo = (TextView)findViewById(R.id.PerfilPasajeroActivity_sexo);
-        correo = (TextView)findViewById(R.id.PerfilPasajeroActivity_correo);
-        telefono = (TextView)findViewById(R.id.PerfilPasajeroActivity_telefono);
-        preferencias = (TextView)findViewById(R.id.PerfilPasajeroActivity_preferencias);
 
-/*
-        username.setText("Username: " + usuario.getUsername());
-        nombre.setText("Nombre: " + usuario.getNombre());
-        rut.setText("Matricula: " + usuario.getRut());
-        sexo.setText("Sexo: " + usuario.getSexo());
-        correo.setText("Correo: " + usuario.getCorreo());
-        telefono.setText("Teléfono: " + usuario.getTelefono());
-        //if(usuario.getPreferencias() != null) preferencias.setText("Preferencias: " + usuario.getPreferencias());
-*/
+        Usuario usuario1 = modelApi.obtenerUsuario(usuario.getNombre_usuario());
     }
 
 
-    public void modificarPerfilPasajero(View view){
+    public void modificarPerfil(View view){
         Intent ModificarPerfilActivity = new Intent(this, ModificarPerfilActivity.class);
         ModificarPerfilActivity.putExtra("usuario_entidad", usuario);
         startActivity(ModificarPerfilActivity);

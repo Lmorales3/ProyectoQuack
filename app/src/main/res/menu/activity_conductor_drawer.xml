@@ -11,15 +11,15 @@
         <item
             android:id="@+id/ConductorActivity_crearviaje"
             android:icon="@drawable/crearviaje_icono"
-            android:title="Crear Viaje" />
+            android:title="" />
         <item
             android:id="@+id/ConductorActivity_verviajes"
             android:icon="@drawable/ver_icono"
-            android:title="Mis Viajes" />
+            android:title="" />
         <item
             android:id="@+id/ConductorActivity_verreservas"
             android:icon="@drawable/ver_icono"
-            android:title="Reservas Solicitadas" />
+            android:title="" />
         <item
             android:id="@+id/ConductorActivity_salir"
             android:icon="@drawable/salir_icono"

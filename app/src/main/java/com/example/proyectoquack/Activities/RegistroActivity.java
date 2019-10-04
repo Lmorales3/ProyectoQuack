@@ -21,16 +21,13 @@ public class RegistroActivity extends AppCompatActivity {
 
     private EditText nombre;
     private EditText apellidoPaterno;
-    private EditText apellidoMaterno;
+    private EditText carrera;
     private EditText username;
     private EditText password1;
     private EditText password2;
     private EditText correo;
-    private EditText telefono;
     private EditText rut1;
     private EditText rut2;
-   // private RadioButton conductor;
-   // private RadioButton pasajero;
     private RadioButton hombre;
     private RadioButton mujer;
 
@@ -44,12 +41,12 @@ public class RegistroActivity extends AppCompatActivity {
 
         nombre = (EditText)findViewById(R.id.RegistroActivity_Nombre);
         apellidoPaterno = (EditText)findViewById(R.id.RegistroActivity_ApellidoPaterno);
-        apellidoMaterno = (EditText)findViewById(R.id.RegistroActivity_ApellidoMaterno);
+        carrera = (EditText)findViewById(R.id.RegistroActivity_ApellidoMaterno);
         username = (EditText)findViewById(R.id.RegistroActivity_Usuario);
         password1 = (EditText)findViewById(R.id.RegistroActivity_Contraseña1);
         password2 = (EditText)findViewById(R.id.RegistroActivity_Contrasena2);
         correo = (EditText)findViewById(R.id.RegistroActivity_Email);
-        telefono = (EditText)findViewById(R.id.RegistroActivity_Telefono);
+
         rut1 = (EditText)findViewById(R.id.RegistroActivity_Rut1);
         rut2 = (EditText)findViewById(R.id.RegistroActivity_Rut2);
         //conductor = (RadioButton)findViewById(R.id.RegistroActivity_Conductor);
@@ -62,26 +59,25 @@ public class RegistroActivity extends AppCompatActivity {
     public void Registrar(View view){
         String str_nombre = nombre.getText().toString();
         String str_apellidoPaterno = apellidoPaterno.getText().toString();
-        String str_apellidoMaterno = apellidoMaterno.getText().toString();
+        String str_carrera = carrera.getText().toString();
         String str_username = username.getText().toString();
         String str_password1 = password1.getText().toString();
         String str_password2 = password2.getText().toString();
         String str_correo = correo.getText().toString();
-        String str_telefono = telefono.getText().toString();
+
         String str_rut1 = rut1.getText().toString();
         String str_rut2 = rut2.getText().toString();
-
+//arreglar
         if(!str_nombre.isEmpty() && !str_apellidoPaterno.isEmpty()
-                && !str_apellidoMaterno.isEmpty() && !str_username.isEmpty()
+                && !str_carrera.isEmpty() && !str_username.isEmpty()
                 && !str_password1.isEmpty() && !str_password2.isEmpty()
-                && !str_correo.isEmpty() && !str_telefono.isEmpty()
-                && !str_rut1.isEmpty() && !str_rut2.isEmpty()){
+                && !str_correo.isEmpty() && !str_rut1.isEmpty() && !str_rut2.isEmpty()){
             if((hombre.isChecked() || mujer.isChecked()) ){
                 if(str_password1.compareTo(str_password2)==0){
 
-                    String nombre = str_nombre + str_apellidoPaterno + str_apellidoMaterno;
+                    String nombre = str_nombre + str_apellidoPaterno;
                     Usuario usuario = new Usuario(str_username, nombre, str_password1, str_correo,
-                            "0/0/0", "Carrera",
+                            "0/0/0", str_carrera,
                             (float)0.0, new ArrayList<Comida>());
 
                     Usuario usuario1 = modelApi.crearUsuario(usuario);
