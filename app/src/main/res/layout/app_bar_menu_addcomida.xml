@@ -32,36 +32,24 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="90"
-            android:text="Menu casino Los Patos"
-            android:textSize="36sp" />
+            android:text="¿Cuál es el nombre del almuerzo?"
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:gravity="center"
-            android:text="¿Cuál menú eliges?"
-            android:textSize="18sp" />
+            android:text="¿Cómo está su comida?"
+            android:textSize="24sp" />
 
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="157dp"
-            android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="50"
-            android:background="#FFC107"
-            android:text="MENÚ GENERAL"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="159dp"
-            android:layout_height="78dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20"
-            android:background="#FFC107"
-            android:includeFontPadding="false"
-            android:text="MENÚ JUNAEB" />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:text="¿Quiere hacer un comentario?"
+            android:textSize="24sp" />
 
     </LinearLayout>
 
