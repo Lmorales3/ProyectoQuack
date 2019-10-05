@@ -60,8 +60,8 @@ public interface JsonApi {
     @GET("fila/obtener/{id}")
     Call<Fila> obtenerFila(@Path("id") BigInteger id);
 
-    @GET("fila/mean_value/{fecha_hora}")
-    Call<Value> mean_value(@Path("fecha_hora") String fecha_hora);
+    @GET("fila/mean_value")
+    Call<Value> mean_value();
 
     //  Metodos de Publicacion
 
