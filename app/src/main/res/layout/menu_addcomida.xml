@@ -102,6 +102,24 @@
                 android:inputType="textMultiLine" />
         </android.support.design.widget.TextInputLayout>
 
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="73dp"
+            android:layout_height="58dp"
+            android:layout_marginLeft="75"
+            android:background="#FFC107"
+            android:hapticFeedbackEnabled="false"
+            app:srcCompat="@android:drawable/ic_menu_camera" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="220"
+            android:layout_marginTop="-55"
+            android:background="#FFC107"
+            android:text="Siguiente" />
+
     </LinearLayout>
 
 
