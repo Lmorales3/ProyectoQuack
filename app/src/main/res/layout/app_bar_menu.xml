@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="90"
+            android:layout_marginTop="90dp"
             android:text="Menu casino Los Patos"
             android:textSize="36sp" />
 
@@ -48,7 +48,7 @@
             android:layout_width="157dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
-            android:layout_marginTop="50"
+            android:layout_marginTop="50dp"
             android:background="#FFC107"
             android:text="MENÚ GENERAL"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
@@ -58,7 +58,7 @@
             android:layout_width="159dp"
             android:layout_height="78dp"
             android:layout_gravity="center"
-            android:layout_marginTop="20"
+            android:layout_marginTop="20dp"
             android:background="#FFC107"
             android:includeFontPadding="false"
             android:text="MENÚ JUNAEB" />
