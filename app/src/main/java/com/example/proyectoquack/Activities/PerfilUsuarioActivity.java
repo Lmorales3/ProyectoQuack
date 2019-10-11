@@ -17,30 +17,35 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
     private ImageView foto;
     private TextView username;
     private TextView nombre;
-    private TextView rut;
-    private TextView sexo;
     private TextView correo;
     private TextView telefono;
-    private TextView preferencias;
     private ModelApi modelApi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil_usuario);
+
         usuario= (Usuario)getIntent().getSerializableExtra("usuario_entidad");
         modelApi= new ModelApi();
 
         username = (TextView)findViewById(R.id.PerfilPasajeroActivity_username);
         nombre = (TextView)findViewById(R.id.PerfilPasajeroActivity_nombre);
-        rut = (TextView)findViewById(R.id.PerfilPasajeroActivity_rut);
-        sexo = (TextView)findViewById(R.id.PerfilPasajeroActivity_sexo);
         correo = (TextView)findViewById(R.id.PerfilPasajeroActivity_correo);
         telefono = (TextView)findViewById(R.id.PerfilPasajeroActivity_telefono);
-        preferencias = (TextView)findViewById(R.id.PerfilPasajeroActivity_preferencias);
+
+
 
 
         Usuario usuario1 = modelApi.obtenerUsuario(usuario.getNombre_usuario());
+
+
+        nombre.setText(usuario.getNombre_usuario());
+        nombre.setText(usuario.getNombre_real());
+        telefono.setText(usuario.getFecha_nacimiento());
+
+
+
     }
 
 
@@ -49,10 +54,5 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
         ModificarPerfilActivity.putExtra("usuario_entidad", usuario);
         startActivity(ModificarPerfilActivity);
     }
-/*
-    public void modificarContrPasajero(View view) {
-        Intent ModificarPerfilPasajeroActivity = new Intent(this, ModificarPerfilPasajeroActivity.class);
-        ModificarPerfilPasajeroActivity.putExtra("usuario_entidad", usuario);
-        startActivity(ModificarPerfilPasajeroActivity);
-    }*/
+
 }
