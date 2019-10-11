@@ -133,7 +133,7 @@ public class UsuarioActivity extends AppCompatActivity implements NavigationView
             ReservasSolicitadasActivity.putExtra("conductor_entidad", conductor);
             startActivity(ReservasSolicitadasActivity);
         }
-
+*/
         else if (id == R.id.ConductorActivity_salir){
             SharedPreferences sharedPreferences;
             sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -144,7 +144,7 @@ public class UsuarioActivity extends AppCompatActivity implements NavigationView
             startActivity(MainActivity);
             this.finish();
         }
-*/
+
        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

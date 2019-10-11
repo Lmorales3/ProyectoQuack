@@ -1,15 +1,11 @@
 package com.example.proyectoquack.Activities;
 
-import android.content.ContentValues;
-import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.Toast;
-import com.example.proyectoquack.DB.AdminSQLiteOpenHelper;
-import com.example.proyectoquack.DB.DBQueries;
+
 import com.example.proyectoquack.DB.ModelApi;
 import com.example.proyectoquack.Entidades.Comida;
 import com.example.proyectoquack.Entidades.Usuario;
@@ -19,6 +15,7 @@ import java.util.ArrayList;
 
 public class RegistroActivity extends AppCompatActivity {
 
+
     private EditText nombre;
     private EditText apellidoPaterno;
     private EditText carrera;
@@ -26,10 +23,10 @@ public class RegistroActivity extends AppCompatActivity {
     private EditText password1;
     private EditText password2;
     private EditText correo;
-    private EditText rut1;
-    private EditText rut2;
-    private RadioButton hombre;
-    private RadioButton mujer;
+    private EditText fecha_nacimiento;
+    //private EditText rut2;
+    //private RadioButton hombre;
+    //private RadioButton mujer;
 
     private ModelApi modelApi;
 
@@ -41,18 +38,18 @@ public class RegistroActivity extends AppCompatActivity {
 
         nombre = (EditText)findViewById(R.id.RegistroActivity_Nombre);
         apellidoPaterno = (EditText)findViewById(R.id.RegistroActivity_ApellidoPaterno);
-        carrera = (EditText)findViewById(R.id.RegistroActivity_ApellidoMaterno);
+        carrera = (EditText)findViewById(R.id.carrera);
         username = (EditText)findViewById(R.id.RegistroActivity_Usuario);
         password1 = (EditText)findViewById(R.id.RegistroActivity_Contraseña1);
         password2 = (EditText)findViewById(R.id.RegistroActivity_Contrasena2);
         correo = (EditText)findViewById(R.id.RegistroActivity_Email);
 
-        rut1 = (EditText)findViewById(R.id.RegistroActivity_Rut1);
-        rut2 = (EditText)findViewById(R.id.RegistroActivity_Rut2);
+        fecha_nacimiento = (EditText)findViewById(R.id.fecha_nacimiento);
+       // rut2 = (EditText)findViewById(R.id.RegistroActivity_Rut2);
         //conductor = (RadioButton)findViewById(R.id.RegistroActivity_Conductor);
        // pasajero = (RadioButton)findViewById(R.id.RegistroActivity_Pasajero);
-        hombre = (RadioButton)findViewById(R.id.RegistroActivity_SexoM);
-        mujer = (RadioButton)findViewById(R.id.RegistroActivity_SexoF);
+       // hombre = (RadioButton)findViewById(R.id.RegistroActivity_SexoM);
+        //mujer = (RadioButton)findViewById(R.id.RegistroActivity_SexoF);
 
     }
 
@@ -64,29 +61,28 @@ public class RegistroActivity extends AppCompatActivity {
         String str_password1 = password1.getText().toString();
         String str_password2 = password2.getText().toString();
         String str_correo = correo.getText().toString();
+        String str_fecha_nacimiento = fecha_nacimiento.getText().toString();
 
-        String str_rut1 = rut1.getText().toString();
-        String str_rut2 = rut2.getText().toString();
-//arreglar
+
         if(!str_nombre.isEmpty() && !str_apellidoPaterno.isEmpty()
                 && !str_carrera.isEmpty() && !str_username.isEmpty()
                 && !str_password1.isEmpty() && !str_password2.isEmpty()
-                && !str_correo.isEmpty() && !str_rut1.isEmpty() && !str_rut2.isEmpty()){
-            if((hombre.isChecked() || mujer.isChecked()) ){
+                && !str_correo.isEmpty() && !str_fecha_nacimiento.isEmpty()){
                 if(str_password1.compareTo(str_password2)==0){
 
                     String nombre = str_nombre + str_apellidoPaterno;
-                    Usuario usuario = new Usuario(str_username, nombre, str_password1, str_correo,
-                            "0/0/0", str_carrera,
+                    Usuario usuario = new Usuario(str_username, nombre, str_password1, str_correo, str_fecha_nacimiento, str_carrera,
                             (float)0.0, new ArrayList<Comida>());
 
                     Usuario usuario1 = modelApi.crearUsuario(usuario);
+
                 }
                 else Toast.makeText(this,"Las contraseñas no coinciden", Toast.LENGTH_LONG).show();
-            }
-            else Toast.makeText(this, "Seleccione las casillas", Toast.LENGTH_LONG).show();
+
         }
         else Toast.makeText(this, "Hay campos sin rellenar", Toast.LENGTH_LONG).show();
 
     }
+
+
 }
