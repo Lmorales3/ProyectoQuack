@@ -58,7 +58,26 @@
             android:text="¿Cómo está su comida?"
             android:textSize="24sp" />
 
-
+        <RatingBar
+            android:id="@+id/ratingFila"
+            style="@style/quackRatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp"
+            android:adjustViewBounds="true"
+            android:isIndicator="false"
+            android:numStars="5"
+            android:progressDrawable="@drawable/custom_progressbar2"
+            android:rating="0.5"
+            android:scaleType="fitCenter"
+            android:scaleX="0.9"
+            android:scaleY="0.9"
+            android:stepSize="0.5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView3"
