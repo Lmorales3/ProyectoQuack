@@ -9,9 +9,8 @@
             android:icon="@drawable/perfil_icono"
             android:title="Perfil" />
         <item
-            android:id="@+id/ConductorActivity_crearviaje"
+            android:id="@+id/ConductorActivity_menu"
             android:icon="@drawable/crearviaje_icono"
-            android:onClick="onClickMenu"
             android:title="Menu" />
         <item
             android:id="@+id/ConductorActivity_verviajes"

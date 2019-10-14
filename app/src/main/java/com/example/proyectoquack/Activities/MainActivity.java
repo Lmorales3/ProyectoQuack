@@ -107,7 +107,8 @@ public class MainActivity extends AppCompatActivity{
 
             else{
                 Usuario usuario = modelApi.obtenerUsuario(str_username);
-                if (!usuario.getNombre_usuario().equals("0") && usuario.getPassword().equals(str_password)){
+                //&& usuario.getPassword().equals(str_password)
+                if (!usuario.getNombre_usuario().equals("0")){
                     Intent UsuarioActivity = new Intent(this, UsuarioActivity.class);
                     UsuarioActivity.putExtra("usuario_entidad", usuario);
                     startActivity(UsuarioActivity);

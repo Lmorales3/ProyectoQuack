@@ -11,10 +11,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activities.EleccionMenuActivity" />
+        <activity android:name=".Activities.EleccionComidaActivity" />
+        <activity android:name=".Activities.MenuActivity" />
+        <activity android:name=".Activities.MenuJunaebActivity" />
+        <activity android:name=".Activities.MenuNormalActivity" />
+
         <activity android:name=".Activities.ModificarPerfilActivity"></activity>
+        <activity android:name=".Activities.NuevaComidaActivity"></activity>
+
         <activity android:name=".Activities.PerfilUsuarioActivity" />
         <activity android:name=".Activities.RegistroActivity" />
         <activity android:name=".Activities.UsuarioActivity" />
+
+        <activity android:name=".Activities.ValorarComentarActivity"></activity>
+
+
         <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
