@@ -13,22 +13,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.proyectoquack.DB.ModelApi;
 import com.example.proyectoquack.Entidades.Usuario;
 import com.example.proyectoquack.R;
 
 public class UsuarioActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private Usuario conductor;
+    private Usuario usuario;
     private TextView HeaderConductor_username;
     private TextView HeaderConductor_nombre;
-    private TextView usuario;
+    //private TextView usuario1;
     private ImageView HeaderConductor_foto;
+    private ModelApi modelApi;
 
     private boolean doubleBackToExitPressedOnce = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,7 @@ public class UsuarioActivity extends AppCompatActivity implements NavigationView
         setContentView(R.layout.activity_usuario);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        usuario = (Usuario)getIntent().getSerializableExtra("usuario_entidad");
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -43,13 +48,21 @@ public class UsuarioActivity extends AppCompatActivity implements NavigationView
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+
+        modelApi= new ModelApi();
+        Usuario usuario2 = modelApi.obtenerUsuario(usuario.getNombre_usuario());
+
         navigationView.setNavigationItemSelectedListener(this);
 
+        View headView = navigationView.getHeaderView(0);
+        HeaderConductor_nombre = (TextView)headView.findViewById(R.id.HeaderConductor_nombre);
+        HeaderConductor_username = (TextView)headView.findViewById(R.id.HeaderConductor_username);
+        HeaderConductor_foto = (ImageView)headView.findViewById(R.id.HeaderConductor_foto);
+       // HeaderConductor_username.setText((CharSequence) usuario2);
+        //HeaderConductor_nombre.setText(usuario.getNombre());
+        HeaderConductor_foto.setImageResource(R.drawable.user);
 
-        conductor=(Usuario) getIntent().getSerializableExtra("usuario_entidad");
-
-        //usuario.setText("Bienvenido: " + conductor.getNombre_usuario());
-        //usuario.setText("Bienvenido: usuario");
 
     }
 
@@ -91,6 +104,7 @@ public class UsuarioActivity extends AppCompatActivity implements NavigationView
         return super.onOptionsItemSelected(item);
     }
 
+
     @SuppressWarnings("StatementWithEmptyBody")
 
     @Override
@@ -99,10 +113,11 @@ public class UsuarioActivity extends AppCompatActivity implements NavigationView
         int id = item.getItemId();
 
         if (id == R.id.ConductorActivity_perfil){
-            Intent PerfilConductorActivity = new Intent(this, PerfilUsuarioActivity.class);
-            PerfilConductorActivity.putExtra("usuario_entidad", conductor);
-            startActivity(PerfilConductorActivity);
+            Intent PerfilUsuarioActivity = new Intent(this, PerfilUsuarioActivity.class);
+            PerfilUsuarioActivity.putExtra("usuario_entidad", usuario);
+            startActivity(PerfilUsuarioActivity);
         }
+
         /*
         else if (id == R.id.ConductorActivity_crearviaje){
             Intent CrearViajeActivity = new Intent(this, CrearViajeActivity.class);
@@ -126,12 +141,12 @@ public class UsuarioActivity extends AppCompatActivity implements NavigationView
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putBoolean("AutoLogin", false);
             editor.apply();
-            Intent MainActivity = new Intent(this, com.example.carpulin.Activities.MainActivity.class);
+            Intent MainActivity = new Intent(this, com.example.proyectoquack.Activities.MainActivity.class);
             startActivity(MainActivity);
             this.finish();
         }*/
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+       DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
