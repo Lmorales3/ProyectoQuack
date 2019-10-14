@@ -27,6 +27,9 @@ public interface JsonApi {
     @POST("comentario/crear")
     Call<Comentario> crearComentario(@Body Comentario comentario);
 
+    @GET("comentario/todos")
+    Call<Comentario> todosComentario();
+
     // Metodos de Comida
 
     @POST("comida/crear")
@@ -60,7 +63,7 @@ public interface JsonApi {
     @GET("fila/obtener/{id}")
     Call<Fila> obtenerFila(@Path("id") BigInteger id);
 
-    @GET("fila/mean_value/{fecha_hora}")
+    @GET("fila/mean_value")
     Call<Value> mean_value(@Path("fecha_hora") String fecha_hora);
 
     //  Metodos de Publicacion
