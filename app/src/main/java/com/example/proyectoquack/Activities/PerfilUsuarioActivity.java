@@ -47,15 +47,16 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
         telefono = (TextView)findViewById(R.id.PerfilPasajeroActivity_telefono);
         preferencias = (TextView)findViewById(R.id.PerfilPasajeroActivity_preferencias);
 
-/*
-        username.setText("Username: " + usuario.getUsername());
-        nombre.setText("Nombre: " + usuario.getNombre());
-        rut.setText("Matricula: " + usuario.getRut());
-        sexo.setText("Sexo: " + usuario.getSexo());
+
+        username.setText("Username: " + usuario.getNombre_usuario());
+        nombre.setText("Nombre: " + usuario.getNombre_real());
+
+        //rut.setText("Matricula: " + usuario.getRut());
+        //sexo.setText("Sexo: " + usuario.getSexo());
         correo.setText("Correo: " + usuario.getCorreo());
-        telefono.setText("Teléfono: " + usuario.getTelefono());
+        //telefono.setText("Teléfono: " + usuario.getTelefono());
         //if(usuario.getPreferencias() != null) preferencias.setText("Preferencias: " + usuario.getPreferencias());
-*/
+
     }
 
 
