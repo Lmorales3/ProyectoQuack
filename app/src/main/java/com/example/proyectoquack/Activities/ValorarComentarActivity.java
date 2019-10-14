@@ -18,7 +18,13 @@ public class ValorarComentarActivity extends AppCompatActivity {
 
     }
 
-    public void comidaJuna(View view){
+    public void comidaJuna_valorar(View view){
+        Intent i = new Intent(this, com.example.proyectoquack.Activities.EleccionMenuActivity.class);
+        startActivity(i);
+    }
+
+
+    public void comidaNormal_valorar(View view){
         Intent i = new Intent(this, com.example.proyectoquack.Activities.EleccionMenuActivity.class);
         startActivity(i);
     }

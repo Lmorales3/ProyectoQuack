@@ -13,12 +13,12 @@ public class MenuJunaebActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.app_bar_menu);
+        setContentView(R.layout.escoger_comida);
         //getSupportActionBar().hide();
 
     }
 
-    public void comidaJuna(View view){
+    public void valorar_comidaJuna(View view){
         Intent i = new Intent(this, com.example.proyectoquack.Activities.EleccionMenuActivity.class);
         startActivity(i);
     }

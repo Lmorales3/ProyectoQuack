@@ -18,7 +18,7 @@ public class NuevaComidaActivity extends AppCompatActivity {
 
     }
 
-    public void comidaJuna(View view){
+    public void Nueva_comida(View view){
         Intent i = new Intent(this, com.example.proyectoquack.Activities.EleccionMenuActivity.class);
         startActivity(i);
     }

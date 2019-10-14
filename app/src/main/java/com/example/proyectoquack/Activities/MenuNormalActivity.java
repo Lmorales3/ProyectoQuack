@@ -17,13 +17,13 @@ public class MenuNormalActivity extends AppCompatActivity {
 
     }
 
-    public void comidaNormal(View view){
-        Intent i = new Intent(this, com.example.proyectoquack.Activities.EleccionMenuActivity.class);
+    public void valorar_comida_normal(View view){
+        Intent i = new Intent(this, com.example.proyectoquack.Activities.ValorarComentarActivity.class);
         startActivity(i);
     }
 
     public void NuevaComida(View view){
-        Intent i = new Intent(this, com.example.proyectoquack.Activities.NuevaComidaActivity.class);
+        Intent i = new Intent(this, com.example.proyectoquack.Activities.ValorarComentarActivity.class);
         startActivity(i);
     }
 
