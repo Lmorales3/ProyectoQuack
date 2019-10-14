@@ -50,10 +50,7 @@ public class FilaActivity2 extends AppCompatActivity {
         valText.setText("" + (int)(valFila*2));
 
         modelApi = new ModelApi();
-        BigInteger a = new BigInteger("66");
         fila = new Fila("404", new Usuario(), "0", 0, fi, !fi);
-        //fila.setEs_junaeb(fi);
-        //fila.setEs_normal(!fi);
         //fila = modelApi.crearFila(new Fila());
 
 
@@ -64,13 +61,6 @@ public class FilaActivity2 extends AppCompatActivity {
             }
         });
 
-
-        Context context = getApplicationContext();
-        CharSequence text = "id " + fila.getFilaId();
-        int duration = Toast.LENGTH_SHORT;
-        Toast toast = Toast.makeText(context, text, duration);
-        //toast.show();
-
     }
 
     public void clickRating(View view){
@@ -78,14 +68,15 @@ public class FilaActivity2 extends AppCompatActivity {
         i.putExtra("nota", (int)(ratingFila.getRating()*2));
 
         fila.setPuntaje(ratingFila.getRating()*2);
-        modelApi.crearFila(fila);
+        Fila fila22 = modelApi.crearFila(fila);
 
-        Context context = getApplicationContext();
-        CharSequence text = "did " + fila.getFilaId();
+        /*
+        Context context = getApplicationContext();  //fila22.setPuntaje(59);
+        CharSequence text = "did " + fila22.getPuntaje();   //para cer si funciona crearFila
         int duration = Toast.LENGTH_SHORT;
         Toast toast = Toast.makeText(context, text, duration);
-        //toast.show();
-
+        toast.show();
+        */
         ////
         Intent intent = getIntent();
         i.putExtra("cj",intent.getIntExtra("cj",0));
@@ -93,6 +84,7 @@ public class FilaActivity2 extends AppCompatActivity {
         i.putExtra("cg",intent.getIntExtra("cg",0));
         i.putExtra("pg", intent.getFloatExtra("pg",0));
         i.putExtra("quefila", intent.getBooleanExtra("quefila", true));
+        ////
 
         startActivity(i);
         this.finish();
