@@ -48,7 +48,9 @@
             android:layout_width="114dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
-            app:srcCompat="@drawable/porotos" />
+            android:onClick="valorar_comida"
+            app:srcCompat="@drawable/porotos"
+            tools:ignore="OnClick" />
 
         <ImageButton
             android:id="@+id/imageButton12"
@@ -56,7 +58,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="225dp"
             android:layout_marginTop="-85dp"
-            app:srcCompat="@drawable/tallarinessalsa" />
+            android:onClick="valorar_comida"
+            app:srcCompat="@drawable/tallarinessalsa"
+            tools:ignore="OnClick" />
 
         <TextView
             android:id="@+id/textView5"
@@ -81,7 +85,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="50dp"
-            app:srcCompat="@drawable/purechuevo" />
+            android:onClick="valorar_comida"
+            app:srcCompat="@drawable/purechuevo"
+            tools:ignore="OnClick" />
 
         <ImageButton
             android:id="@+id/imageButton14"
@@ -89,7 +95,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="225dp"
             android:layout_marginTop="-85dp"
-            app:srcCompat="@drawable/papasconpoio" />
+            android:onClick="valorar_comida"
+            app:srcCompat="@drawable/papasconpoio"
+            tools:ignore="OnClick" />
 
         <TextView
             android:id="@+id/textView7"
@@ -113,7 +121,9 @@
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
             android:background="#FFC107"
-            android:text="NO ESTÁ EL ALMUERZO" />
+            android:onClick="NuevaComida"
+            android:text="NO ESTÁ EL ALMUERZO"
+            tools:ignore="OnClick" />
 
     </LinearLayout>
 

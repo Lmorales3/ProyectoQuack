@@ -19,4 +19,12 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="quackRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/custom_progressbar2</item>
+        <item name="android:minHeight">64sp</item>
+        <item name="android:minWidth">64sp</item>
+        <item name="android:maxHeight">64sp</item>
+        <item name="android:maxWidth">64sp</item>
+    </style>
+
 </resources>

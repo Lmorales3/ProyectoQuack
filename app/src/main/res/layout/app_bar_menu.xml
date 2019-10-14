@@ -33,7 +33,8 @@
             android:layout_gravity="center"
             android:layout_marginTop="90dp"
             android:text="Menu casino Los Patos"
-            android:textSize="36sp" />
+            android:textSize="36sp"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/textView2"
@@ -41,7 +42,8 @@
             android:layout_height="48dp"
             android:gravity="center"
             android:text="¿Cuál menú eliges?"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/button3"
@@ -51,7 +53,9 @@
             android:layout_marginTop="50dp"
             android:background="#FFC107"
             android:text="MENÚ GENERAL"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+            android:onClick="normal"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            tools:ignore="HardcodedText,OnClick" />
 
         <Button
             android:id="@+id/button2"
@@ -61,7 +65,9 @@
             android:layout_marginTop="20dp"
             android:background="#FFC107"
             android:includeFontPadding="false"
-            android:text="MENÚ JUNAEB" />
+            android:onClick="JUNAEB"
+            android:text="MENÚ JUNAEB"
+            tools:ignore="HardcodedText,OnClick" />
 
     </LinearLayout>
 

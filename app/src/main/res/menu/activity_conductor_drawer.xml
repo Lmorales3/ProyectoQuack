@@ -11,6 +11,7 @@
         <item
             android:id="@+id/ConductorActivity_crearviaje"
             android:icon="@drawable/crearviaje_icono"
+            android:onClick="onClickMenu"
             android:title="Menu" />
         <item
             android:id="@+id/ConductorActivity_verviajes"
