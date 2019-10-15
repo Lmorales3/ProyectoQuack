@@ -52,6 +52,8 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
         //rut.setText("Matricula: " + usuario.getRut());
         //sexo.setText("Sexo: " + usuario.getSexo());
         correo.setText("Correo: " + usuario.getCorreo());
+        Quack_puntos.setText("Quack puntos: " + usuario.getQuack_puntos());
+
         //telefono.setText("Teléfono: " + usuario.getTelefono());
         //if(usuario.getPreferencias() != null) preferencias.setText("Preferencias: " + usuario.getPreferencias());
 
