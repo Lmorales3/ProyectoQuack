@@ -50,16 +50,12 @@ public class UsuarioActivity extends AppCompatActivity implements NavigationView
         toggle.syncState();
 
 
-        modelApi= new ModelApi();
-        Usuario usuario2 = modelApi.obtenerUsuario(usuario.getNombre_usuario());
-
         navigationView.setNavigationItemSelectedListener(this);
 
         View headView = navigationView.getHeaderView(0);
         HeaderConductor_nombre = (TextView)headView.findViewById(R.id.HeaderConductor_nombre);
         HeaderConductor_username = (TextView)headView.findViewById(R.id.HeaderConductor_username);
         HeaderConductor_foto = (ImageView)headView.findViewById(R.id.HeaderConductor_foto);
-       // HeaderConductor_username.setText((CharSequence) usuario2);
         //HeaderConductor_nombre.setText(usuario.getNombre());
         HeaderConductor_foto.setImageResource(R.drawable.user);
 
@@ -113,21 +109,23 @@ public class UsuarioActivity extends AppCompatActivity implements NavigationView
         int id = item.getItemId();
 
         if (id == R.id.ConductorActivity_perfil){
+
             Intent PerfilUsuarioActivity = new Intent(this, PerfilUsuarioActivity.class);
             PerfilUsuarioActivity.putExtra("usuario_entidad", usuario);
             startActivity(PerfilUsuarioActivity);
         }
 
-        /*
-        else if (id == R.id.ConductorActivity_crearviaje){
-            Intent CrearViajeActivity = new Intent(this, CrearViajeActivity.class);
-            CrearViajeActivity.putExtra("conductor_entidad", conductor);
+        else if (id == R.id.ConductorActivity_menu){
+            Intent CrearViajeActivity = new Intent(this, EleccionMenuActivity.class);
+            CrearViajeActivity.putExtra("usuario_entidad", usuario);
             startActivity(CrearViajeActivity);
         }
+/*
         else if (id == R.id.ConductorActivity_verviajes) {
             Intent MisViajesActivity = new Intent(this, MisViajesActivity.class);
             MisViajesActivity.putExtra("conductor_entidad", conductor);
             startActivity(MisViajesActivity);
+<<<<<<< HEAD
         }
         else if (id == R.id.ConductorActivity_verreservas) {
             Intent ReservasSolicitadasActivity = new Intent(this, ReservasSolicitadasActivity.class);
@@ -144,10 +142,19 @@ public class UsuarioActivity extends AppCompatActivity implements NavigationView
             Intent MainActivity = new Intent(this, com.example.proyectoquack.Activities.MainActivity.class);
             startActivity(MainActivity);
             this.finish();
+=======
+>>>>>>> menu
         }*/
 
        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
+
 }
