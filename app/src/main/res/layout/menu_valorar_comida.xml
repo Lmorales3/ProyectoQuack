@@ -126,7 +126,8 @@
             android:layout_marginLeft="220dp"
             android:layout_marginTop="-55dp"
             android:background="#FFC107"
-            android:text="Siguiente" />
+            android:onClick="onClickMenu"
+            android:text="Enviar" />
 
     </LinearLayout>
 
