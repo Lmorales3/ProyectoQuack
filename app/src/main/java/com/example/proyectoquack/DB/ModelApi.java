@@ -137,8 +137,8 @@ public class ModelApi {
         }
     };
 
-    public Value mean_value(){
-        Call<Value> call = jsonApi.mean_value();
+    public Value mean_value(int tipo){
+        Call<Value> call = jsonApi.mean_value(tipo);
         try {
             return call.execute().body();
         } catch (IOException e) {
@@ -184,7 +184,7 @@ public class ModelApi {
         }
     };
 
-    public List <Fila> publicacionTodos(){
+    public List <Publicacion> publicacionTodos(){
         Call<List<Publicacion>> call = jsonApi.publicacionTodos();
         try {
             return call.execute().body();

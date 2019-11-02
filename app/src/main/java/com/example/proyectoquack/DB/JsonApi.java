@@ -63,8 +63,8 @@ public interface JsonApi {
     @GET("fila/obtener/{id}")
     Call<Fila> obtenerFila(@Path("id") BigInteger id);
 
-    @GET("fila/mean_value")
-    Call<Value> mean_value();
+    @GET("fila/mean_value/{tipo}")
+    Call<Value> mean_value(@Path("tipo") int tipo);
 
     @GET("fila/todos")
     Call<List <Fila>> filaTodos();
