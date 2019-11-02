@@ -21,6 +21,18 @@
         <activity android:name=".Activities.NuevaComidaActivity"></activity>
 
         <activity android:name=".Activities.PerfilUsuarioActivity" />
+
+        <activity
+            android:name=".Activities.EstadoFilaActivity"
+            android:label="@string/title_activity_estado_fila"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".Activities.FilaActivity"
+            android:label="@string/title_activity_fila" />
+        <activity
+            android:name=".Activities.FilaActivity2"
+            android:label="@string/title_activity_fila" />
+
         <activity android:name=".Activities.RegistroActivity" />
         <activity android:name=".Activities.UsuarioActivity" />
 

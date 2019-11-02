@@ -74,7 +74,7 @@
             android:adjustViewBounds="true"
             android:isIndicator="false"
             android:numStars="5"
-            android:progressDrawable="@drawable/custom_progressbar2"
+            android:progressDrawable="@drawable/custom_progressbar"
             android:rating="0.5"
             android:scaleType="fitCenter"
             android:scaleX="0.9"

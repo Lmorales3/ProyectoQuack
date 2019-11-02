@@ -89,6 +89,12 @@ public class MainActivity extends AppCompatActivity{
                 this.finish();
             }
 
+            else if(str_username.equals("f") && str_password.equals("f")){
+                Intent FilaActivity = new Intent(this, EstadoFilaActivity.class);
+                startActivity(FilaActivity);
+                this.finish();
+            }
+
             else if(str_username.equals("p") && str_password.equals("p")){
                 BigInteger a = new BigInteger("5629499534213120");
                 Comida comida = modelApi.obtenerComida(a);
@@ -103,6 +109,14 @@ public class MainActivity extends AppCompatActivity{
                 content2 += comida2.getNombre_comida();
 
                 Toast.makeText(this, content2, Toast.LENGTH_LONG).show();
+            }
+
+            else if(str_username.equals("usuario")){
+                Intent FilaActivity = new Intent(this, UsuarioActivity.class);
+                Usuario usuario2 = new Usuario("usuario", "usuario apellido", "asd", "usuario@gmail.com", "01/01/2019", "Informática", (float)0.0 , new ArrayList<Comida>());
+                FilaActivity.putExtra("usuario_entidad", usuario2);
+                startActivity(FilaActivity);
+                this.finish();
             }
 
             else{

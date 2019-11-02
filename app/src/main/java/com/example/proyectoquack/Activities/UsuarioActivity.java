@@ -81,6 +81,7 @@ public class UsuarioActivity extends AppCompatActivity implements NavigationView
         }, 2000);
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -120,31 +121,12 @@ public class UsuarioActivity extends AppCompatActivity implements NavigationView
             CrearViajeActivity.putExtra("usuario_entidad", usuario);
             startActivity(CrearViajeActivity);
         }
-/*
-        else if (id == R.id.ConductorActivity_verviajes) {
-            Intent MisViajesActivity = new Intent(this, MisViajesActivity.class);
-            MisViajesActivity.putExtra("conductor_entidad", conductor);
-            startActivity(MisViajesActivity);
-<<<<<<< HEAD
-        }
-        else if (id == R.id.ConductorActivity_verreservas) {
-            Intent ReservasSolicitadasActivity = new Intent(this, ReservasSolicitadasActivity.class);
-            ReservasSolicitadasActivity.putExtra("conductor_entidad", conductor);
-            startActivity(ReservasSolicitadasActivity);
-        }
 
-        else if (id == R.id.ConductorActivity_salir){
-            SharedPreferences sharedPreferences;
-            sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putBoolean("AutoLogin", false);
-            editor.apply();
-            Intent MainActivity = new Intent(this, com.example.proyectoquack.Activities.MainActivity.class);
-            startActivity(MainActivity);
-            this.finish();
-=======
->>>>>>> menu
-        }*/
+        else if (id == R.id.ConductorActivity_verviajes) {
+            Intent MisViajesActivity = new Intent(this, FilaActivity.class);
+            MisViajesActivity.putExtra("conductor_entidad", usuario);
+            startActivity(MisViajesActivity);
+        }
 
        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

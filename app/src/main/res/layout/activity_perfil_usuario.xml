@@ -6,7 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".Activities.PerfilUsuarioActivity">
 
-<android.support.constraint.Constraints
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                app:title="Proyecto Quack" />
+
+        </android.support.design.widget.AppBarLayout>
+    </LinearLayout>
+
+    <android.support.constraint.Constraints
     android:id="@+id/constraints"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -34,7 +55,7 @@
     <TextView
         android:id="@+id/PerfilPasajeroActivity_nombre"
         android:layout_width="248dp"
-        android:layout_height="41dp"
+        android:layout_height="88dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="12dp"
@@ -52,7 +73,7 @@
     <TextView
         android:id="@+id/PerfilPasajeroActivity_correo"
         android:layout_width="247dp"
-        android:layout_height="38dp"
+        android:layout_height="88dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -68,7 +89,7 @@
     <TextView
         android:id="@+id/PerfilPasajeroActivity_telefono"
         android:layout_width="243dp"
-        android:layout_height="67dp"
+        android:layout_height="88dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -99,7 +120,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.453"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/almuerzos_preferidos"
+        app:layout_constraintTop_toBottomOf="@id/Quack_puntos"
         tools:ignore="OnClick" />
 
     <TextView
@@ -118,24 +139,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PerfilPasajeroActivity_telefono" />
 
-    <TextView
-        android:id="@+id/almuerzos_preferidos"
-        android:layout_width="249dp"
-        android:layout_height="88dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.232"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Quack_puntos"
-        app:layout_constraintVertical_bias="0.009" />
 
     <TextView
         android:id="@+id/Quack_puntos"

@@ -21,11 +21,35 @@
                 app:title="Proyecto Quack" />
 
 
-        <Button
-            android:id="@+id/button4"
+        <ImageView
+            android:id="@+id/mainActivity_logo"
+            android:layout_width="295dp"
+            android:layout_height="247dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="28dp"
+            android:foregroundGravity="center_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.456"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/patopato" />
+
+        <TextView
+            android:id="@+id/bienvenida"
+            android:layout_width="match_parent"
+            android:layout_height="92dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Bienvenido(a) Usuario"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <TextView
+            android:id="@+id/textView10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Ingrese a la opciones de la barra de navegación" />
+
     </LinearLayout>
 
 

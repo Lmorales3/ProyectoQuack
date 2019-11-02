@@ -27,6 +27,9 @@ public interface JsonApi {
     @POST("comentario/crear")
     Call<Comentario> crearComentario(@Body Comentario comentario);
 
+    @GET("comentario/todos")
+    Call<List <Comentario>> comentarioTodos();
+
     // Metodos de Comida
 
     @POST("comida/crear")
@@ -63,6 +66,9 @@ public interface JsonApi {
     @GET("fila/mean_value")
     Call<Value> mean_value();
 
+    @GET("fila/todos")
+    Call<List <Fila>> filaTodos();
+
     //  Metodos de Publicacion
 
     @POST("publicacion/crear")
@@ -76,6 +82,9 @@ public interface JsonApi {
             @Path("id") BigInteger id,
             @Path("like") boolean like
     );
+
+    @GET("publicacion/todos")
+    Call<List <Publicacion>> publicacionTodos();
 
     // Metodos de Usuario
 

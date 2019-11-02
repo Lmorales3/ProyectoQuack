@@ -12,4 +12,9 @@
     <string name="title_activity_perfil_pasajero">PerfilPasajeroActivity</string>
     <string name="cu_l_es_el_nombre_del_almuerzo">¿Cuál es el nombre del almuerzo?</string>
 
+    <string name="title_activity_fila">Evaluar Fila</string>
+    <string name="title_activity_estado_fila">Estado de las Filas</string>
+    <string name="junaeb">Junaeb</string>
+    <string name="nonaeb">General</string>
+
 </resources>

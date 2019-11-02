@@ -37,7 +37,7 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
         correo = (TextView)findViewById(R.id.PerfilPasajeroActivity_correo);
         telefono = (TextView)findViewById(R.id.PerfilPasajeroActivity_telefono);
         carrera = (TextView)findViewById(R.id.carrera);
-        Almuerzos_preferidos =(TextView)findViewById(R.id.almuerzos_preferidos);
+        //Almuerzos_preferidos =(TextView)findViewById(R.id.almuerzos_preferidos);
         Quack_puntos=(TextView)findViewById(R.id.Quack_puntos);
 
 
@@ -48,11 +48,14 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
 
         username.setText("Username: " + usuario.getNombre_usuario());
         nombre.setText("Nombre: " + usuario.getNombre_real());
+        correo.setText("Correo: " + usuario.getCorreo());
+        telefono.setText("Fecha de Nacimiento: " + usuario.getFecha_nacimiento());
+        carrera.setText("Carrera: " + usuario.getCarrera());
+        Quack_puntos.setText("Quack puntos: " + usuario.getQuack_puntos());
 
         //rut.setText("Matricula: " + usuario.getRut());
         //sexo.setText("Sexo: " + usuario.getSexo());
-        correo.setText("Correo: " + usuario.getCorreo());
-        Quack_puntos.setText("Quack puntos: " + usuario.getQuack_puntos());
+
 
         //telefono.setText("Teléfono: " + usuario.getTelefono());
         //if(usuario.getPreferencias() != null) preferencias.setText("Preferencias: " + usuario.getPreferencias());

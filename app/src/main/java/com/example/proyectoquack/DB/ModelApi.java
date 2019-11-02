@@ -51,6 +51,15 @@ public class ModelApi {
         }
     }
 
+    public List <Comentario> comentarioTodos(){
+        Call<List<Comentario>> call = jsonApi.comentarioTodos();
+        try {
+            return call.execute().body();
+        } catch (IOException e) {
+            return new ArrayList<Comentario>();
+        }
+    };
+
     // Metodos de Comida
 
     public Comida crearComida(Comida comida){
@@ -137,6 +146,15 @@ public class ModelApi {
         }
     }
 
+    public List <Fila> filaTodos(){
+        Call<List<Fila>> call = jsonApi.filaTodos();
+        try {
+            return call.execute().body();
+        } catch (IOException e) {
+            return new ArrayList<Fila>();
+        }
+    };
+
     //  Metodos de Publicacion
 
     public Publicacion crearPublicacion(Publicacion publicacion){
@@ -163,6 +181,15 @@ public class ModelApi {
             return call.execute().body();
         } catch (IOException e) {
             return new Publicacion();
+        }
+    };
+
+    public List <Fila> publicacionTodos(){
+        Call<List<Publicacion>> call = jsonApi.publicacionTodos();
+        try {
+            return call.execute().body();
+        } catch (IOException e) {
+            return new ArrayList<Publicacion>();
         }
     };
 
