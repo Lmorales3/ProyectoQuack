@@ -13,6 +13,7 @@ import com.example.proyectoquack.DB.ModelApi;
 import com.example.proyectoquack.R;
 
 
+import java.io.Serializable;
 import java.util.List;
 
 public class MenuNormalActivity extends AppCompatActivity {
@@ -58,10 +59,19 @@ public class MenuNormalActivity extends AppCompatActivity {
     public void valorar_comida_normal(View view){
         Intent i = new Intent(this, ValorarComentarActivity.class);
         String tag = (String) view.getTag();
-        i.putExtra("nombre", tag);
+        Comida elegida = comidas.get(0);
+        // encontrar la comida para enviar el objeto entero
+        for(int j=0 ; j<4 ; j++){
+            if( tag.equals(comidas.get(j).getNombre_comida()) ){
+                elegida = comidas.get(j);
+                break;
+            }
+        }
+        i.putExtra("comida", (Serializable) elegida);
         startActivity(i);
 
     }
+
 
     private void set_foto(ImageView f, String nombre){
         f.setTag(nombre);

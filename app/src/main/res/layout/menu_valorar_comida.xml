@@ -65,7 +65,7 @@
             android:textSize="24sp" />
 
         <RatingBar
-            android:id="@+id/ratingFila"
+            android:id="@+id/ratingComida"
             style="@style/quackRatingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -82,7 +82,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="OnClick" />
 
         <TextView
             android:id="@+id/textView3"
@@ -93,21 +94,18 @@
             android:text="¿Quiere hacer un comentario?"
             android:textSize="24sp" />
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
+        <EditText
+            android:id="@+id/comentar_comida"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp">
-
-            <android.support.design.widget.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginBottom="0dp"
-                android:hint="Comentario ..."
-                android:inputType="textMultiLine" />
-        </android.support.design.widget.TextInputLayout>
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:width="300dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Comentario..."
+            android:inputType="textMultiLine"
+            android:maxLines="3" />
 
         <ImageButton
             android:id="@+id/imageButton"
@@ -125,7 +123,9 @@
             android:layout_marginLeft="220dp"
             android:layout_marginTop="-55dp"
             android:background="#FFC107"
-            android:text="Siguiente" />
+            android:onClick="publicar_valoracion"
+            android:text="Siguiente"
+            tools:ignore="OnClick" />
 
     </LinearLayout>
 
