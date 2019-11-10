@@ -80,7 +80,7 @@ public class EstadoFilaActivity extends AppCompatActivity {
 
         //probando mean_value
         modelApi = new ModelApi();
-        Value mem = modelApi.mean_value();
+        Value mem = modelApi.mean_value(0);
         if (mem != null){
             if (intent.getBooleanExtra("quefila",true)){
                 val1.setText(""+5.0);

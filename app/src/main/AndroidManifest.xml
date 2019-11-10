@@ -21,6 +21,7 @@
         <activity android:name=".Activities.NuevaComidaActivity"></activity>
 
         <activity android:name=".Activities.PerfilUsuarioActivity" />
+        <activity android:name=".Activities.VistaComidaActivity" />
 
         <activity
             android:name=".Activities.EstadoFilaActivity"

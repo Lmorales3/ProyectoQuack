@@ -8,11 +8,11 @@ import android.view.View;
 
 import com.example.proyectoquack.R;
 
-public class EleccionComidaActivity extends AppCompatActivity {
+public class VistaComidaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.escoger_comida);
+        setContentView(R.layout.activity_publicacion1);
         //getSupportActionBar().hide();
 
     }

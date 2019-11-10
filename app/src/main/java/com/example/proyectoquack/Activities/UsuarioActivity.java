@@ -128,6 +128,12 @@ public class UsuarioActivity extends AppCompatActivity implements NavigationView
             startActivity(MisViajesActivity);
         }
 
+        else if (id == R.id.ConductorActivity_vista) {
+            Intent MisViajesActivity = new Intent(this, VistaComidaActivity.class);
+            MisViajesActivity.putExtra("conductor_entidad", usuario);
+            startActivity(MisViajesActivity);
+        }
+
        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

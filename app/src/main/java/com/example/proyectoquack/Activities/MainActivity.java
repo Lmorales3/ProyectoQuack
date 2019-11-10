@@ -16,7 +16,9 @@ import com.example.proyectoquack.DB.DBQueries;
 
 import com.example.proyectoquack.DB.JsonApi;
 import com.example.proyectoquack.DB.ModelApi;
+import com.example.proyectoquack.DB.ModelApiTest;
 import com.example.proyectoquack.Entidades.Comida;
+import com.example.proyectoquack.Entidades.Publicacion;
 import com.example.proyectoquack.Entidades.Usuario;
 import com.example.proyectoquack.R;
 import com.google.gson.Gson;
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity{
     private ImageView logo;
     private boolean autoLogin=false;
     private ModelApi modelApi;
+    private ModelApiTest modelApiTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +58,7 @@ public class MainActivity extends AppCompatActivity{
         //getSupportActionBar().hide();
 
         modelApi = new ModelApi();
+        modelApiTest = new ModelApiTest();
 
         logo = (ImageView)findViewById(R.id.MainActivity_logo);
         username = (EditText)findViewById(R.id.MainActivity_username);
@@ -95,7 +99,7 @@ public class MainActivity extends AppCompatActivity{
                 this.finish();
             }
 
-            else if(str_username.equals("p") && str_password.equals("p")){
+            else if(str_username.equals("u") && str_password.equals("u")){
                 BigInteger a = new BigInteger("5629499534213120");
                 Comida comida = modelApi.obtenerComida(a);
                 String content = "";
@@ -103,13 +107,54 @@ public class MainActivity extends AppCompatActivity{
 
                 Toast.makeText(this, content, Toast.LENGTH_LONG).show();
 
+                Usuario usuario2 = new Usuario("usuario", "usuario apellido", "asd", "usuario@gmail.com", "01/01/2019", "Informatica", (float)0.0 , new ArrayList<Comida>());
+
+                modelApi.crearUsuario(usuario2);
+                Usuario usuario3 = modelApi.obtenerUsuario("usuario");
+
+                String content2 = "";
+                content2 += usuario3.getNombre_real();
+
+                Toast.makeText(this, content2, Toast.LENGTH_LONG).show();
+            }
+
+            else if(str_username.equals("p") && str_password.equals("p")){
+                BigInteger a = new BigInteger("5629499534213120");
+                Comida comida = modelApi.obtenerComida(a);
+
+                String content = "";
+                content += comida.getNombre_comida();
+
+                Toast.makeText(this, content, Toast.LENGTH_LONG).show();
+/*
                 Comida comida1 = new Comida("Mechada con pure", (float) 0.0, true);
                 Comida comida2 = modelApi.crearComida(comida1);
                 String content2 = "";
                 content2 += comida2.getNombre_comida();
 
-                Toast.makeText(this, content2, Toast.LENGTH_LONG).show();
+                Toast.makeText(this, content2, Toast.LENGTH_LONG).show();*/
             }
+
+            else if(str_username.equals("a") && str_password.equals("a")){
+                Usuario usuario2 = modelApi.obtenerUsuario("Juan");
+                BigInteger a = new BigInteger("5629499534213120");
+                Comida comida = modelApi.obtenerComida(a);
+
+                Comida comida1 = modelApiTest.crearComida(comida);
+                Usuario usuario = modelApiTest.crearUsuario(usuario2);
+
+                Publicacion publicacion = new Publicacion("5", usuario, comida1, (float) 4.5, "Wena wena", 2, 2, "01/01/2019");
+
+                Publicacion publicacion2 = modelApiTest.crearPublicacion(publicacion);
+
+                String content = "";
+                content += publicacion2.getContenido();
+                content += "---" + publicacion2.getFecha_hora();
+
+                Toast.makeText(this, content, Toast.LENGTH_LONG).show();
+            }
+
+
 
             else if(str_username.equals("usuario")){
                 Intent FilaActivity = new Intent(this, UsuarioActivity.class);

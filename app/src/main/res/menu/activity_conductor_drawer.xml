@@ -17,6 +17,10 @@
             android:id="@+id/ConductorActivity_verviajes"
             android:icon="@drawable/ver_icono"
             android:title="Fila" />
+        <item
+            android:id="@+id/ConductorActivity_vista"
+            android:icon="@drawable/ver_icono"
+            android:title="Publicaciones" />
     </group>
 
 </menu>
