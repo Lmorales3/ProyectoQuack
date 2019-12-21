@@ -7,6 +7,7 @@ import android.view.View;
 
 import android.widget.ImageView;
 import com.example.proyectoquack.Entidades.Comida;
+import com.example.proyectoquack.Entidades.Usuario;
 import android.widget.TextView;
 
 import com.example.proyectoquack.DB.ModelApi;
@@ -16,17 +17,23 @@ import com.example.proyectoquack.R;
 import java.io.Serializable;
 import java.util.List;
 
-public class MenuNormalActivity extends AppCompatActivity {
+public class MenuNormalActivity extends AppCompatActivity implements Serializable {
 
     private List<Comida> comidas;
     private TextView comida1, comida2, comida3, comida4;
     private ImageView foto1, foto2, foto3, foto4;
     private ModelApi modelApi;
+    private Usuario user;
+    private Comida elegida;
+    private Boolean junaeb, normal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.escoger_comida);
+
+        junaeb = getIntent().getBooleanExtra("comida_j", false);
+        normal = getIntent().getBooleanExtra("comida_n", true);
 
         modelApi = new ModelApi();
         comida1 = (TextView)findViewById(R.id.texto_comida1);
@@ -39,7 +46,10 @@ public class MenuNormalActivity extends AppCompatActivity {
         foto3 = ((ImageView)findViewById(R.id.foto_comida3));
         foto4 = ((ImageView)findViewById(R.id.foto_comida4));
 
-        comidas = modelApi.comidaDelDia();
+        if (normal) comidas = modelApi.comidaDelDia();
+//        if (junaeb) comidas = modelApi.comidaJunaeb();
+
+        elegida = comidas.get(0);
 
         comida1.setText( comidas.get(0).getNombre_comida() );
         comida2.setText( comidas.get(1).getNombre_comida() );
@@ -52,14 +62,17 @@ public class MenuNormalActivity extends AppCompatActivity {
         set_foto(foto4, comidas.get(3).getNombre_comida());
 
 
+        user = (Usuario)getIntent().getSerializableExtra("usuario_entidad");
+
         //getSupportActionBar().hide();
 
     }
 
+    @SuppressWarnings("serial")
     public void valorar_comida_normal(View view){
         Intent i = new Intent(this, ValorarComentarActivity.class);
         String tag = (String) view.getTag();
-        Comida elegida = comidas.get(0);
+        System.out.println("tag: "+ tag);
         // encontrar la comida para enviar el objeto entero
         for(int j=0 ; j<4 ; j++){
             if( tag.equals(comidas.get(j).getNombre_comida()) ){
@@ -67,7 +80,10 @@ public class MenuNormalActivity extends AppCompatActivity {
                 break;
             }
         }
+        System.out.println("comida: " + elegida.getNombre_comida());
         i.putExtra("comida", (Serializable) elegida);
+        i.putExtra("usuario_entidad", user);
+
         startActivity(i);
 
     }
@@ -78,13 +94,14 @@ public class MenuNormalActivity extends AppCompatActivity {
         if(nombre.equals("Porotos")) f.setImageResource(R.drawable.porotos);
         else if( nombre.equals("Tallarines con salsa") ) f.setImageResource(R.drawable.tallarinessalsa);
         else if( nombre.equals("Papas fritas con pollo") ) f.setImageResource(R.drawable.papasconpoio);
-        else if( nombre.equals("Puré con huevo") ) f.setImageResource(R.drawable.purechuevo);
+        else if( nombre.equals("Pure con huevo") ) f.setImageResource(R.drawable.purechuevo);
         else f.setImageResource(R.drawable.sincomida);
     }
 
 
     public void NuevaComida(View view){
         Intent i = new Intent(this, com.example.proyectoquack.Activities.ValorarComentarActivity.class);
+        i.putExtra("usuario_entidad", user);
         startActivity(i);
     }
 

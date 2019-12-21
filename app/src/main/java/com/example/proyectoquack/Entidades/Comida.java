@@ -1,6 +1,8 @@
 package com.example.proyectoquack.Entidades;
 
-public class Comida {
+import java.io.Serializable;
+
+public class Comida implements Serializable {
     private String nombre_comida;
     private float puntaje_promedio;
     private boolean comida_del_dia;

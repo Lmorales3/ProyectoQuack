@@ -11,8 +11,11 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import com.example.proyectoquack.Entidades.Comida;
 import com.example.proyectoquack.Entidades.Publicacion;
+import com.example.proyectoquack.Entidades.Usuario;
+import com.example.proyectoquack.DB.ModelApi;
 
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.proyectoquack.R;
 
@@ -24,6 +27,8 @@ public class ValorarComentarActivity extends AppCompatActivity {
     private TextView nombre_comida;
     private RatingBar bar;
     private EditText comentario;
+    private Usuario user;
+    private ModelApi modelApi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +36,9 @@ public class ValorarComentarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_valorar_comida);
 
+        //comida = new Comida();
         comida = (Comida)getIntent().getSerializableExtra("comida");
+        user = (Usuario)getIntent().getSerializableExtra("usuario_entidad");
         n = comida.getNombre_comida();
 
         foto = (ImageView)findViewById(R.id.foto_comida_valorada);
@@ -42,7 +49,7 @@ public class ValorarComentarActivity extends AppCompatActivity {
 
         bar = (RatingBar)findViewById(R.id.ratingComida);
 
-       // comentario = (TextInputLayout)findViewById(R.id.comentar_comida);
+        comentario = (EditText) findViewById(R.id.comentar_comida);
 
     }
 
@@ -50,7 +57,7 @@ public class ValorarComentarActivity extends AppCompatActivity {
         if(nombre.equals("Porotos")) f.setImageResource(R.drawable.porotos);
         else if( nombre.equals("Tallarines con salsa") ) f.setImageResource(R.drawable.tallarinessalsa);
         else if( nombre.equals("Papas fritas con pollo") ) f.setImageResource(R.drawable.papasconpoio);
-        else if( nombre.equals("Puré con huevo") ) f.setImageResource(R.drawable.purechuevo);
+        else if( nombre.equals("Pure con huevo") ) f.setImageResource(R.drawable.purechuevo);
         else f.setImageResource(R.drawable.sincomida);
     }
 
@@ -62,6 +69,12 @@ public class ValorarComentarActivity extends AppCompatActivity {
         float valoracion = (float)bar.getRating();
         String coment = comentario.getText().toString();
         Publicacion pub = new Publicacion();
+        pub.setUser(user);
+        pub.setContenido(coment);
+        pub.setValoracion(valoracion);
+        modelApi = new ModelApi();
+        modelApi.crearPublicacion(pub);
+        Toast.makeText(this, "Su valoración ha sido emitida",Toast.LENGTH_LONG).show();
     }
 
     public void comidaJuna_valorar(View view){
