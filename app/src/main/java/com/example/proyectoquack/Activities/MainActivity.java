@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity{
             }
 
             else if(str_username.equals("f") && str_password.equals("f")){
-                Intent FilaActivity = new Intent(this, EstadoFilaActivity.class);
+                Intent FilaActivity = new Intent(this, NotificacionActivity.class);
                 startActivity(FilaActivity);
                 this.finish();
             }

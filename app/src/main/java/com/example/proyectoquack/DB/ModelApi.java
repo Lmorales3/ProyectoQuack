@@ -184,14 +184,14 @@ public class ModelApi {
         }
     };
 
-    public List <Fila> publicacionTodos(){
+    /*public List <Fila> publicacionTodos(){
         Call<List<Publicacion>> call = jsonApi.publicacionTodos();
         try {
             return call.execute().body();
         } catch (IOException e) {
             return new ArrayList<Publicacion>();
         }
-    };
+    };*/
 
     // Metodos de Usuario
 
