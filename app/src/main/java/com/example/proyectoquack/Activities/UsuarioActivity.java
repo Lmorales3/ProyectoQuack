@@ -1,5 +1,8 @@
 package com.example.proyectoquack.Activities;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -20,6 +23,7 @@ import android.widget.Toast;
 
 import com.example.proyectoquack.DB.ModelApi;
 import com.example.proyectoquack.Entidades.Usuario;
+import com.example.proyectoquack.MyReceiver;
 import com.example.proyectoquack.R;
 
 public class UsuarioActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -59,6 +63,15 @@ public class UsuarioActivity extends AppCompatActivity implements NavigationView
         //HeaderConductor_nombre.setText(usuario.getNombre());
         HeaderConductor_foto.setImageResource(R.drawable.user);
 
+
+        //notificaciones
+        Context context = getApplicationContext();
+        Intent notifyIntent = new Intent(this, MyReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast
+                (context, 0, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(),
+                15 * 1000 * 60, pendingIntent);
 
     }
 

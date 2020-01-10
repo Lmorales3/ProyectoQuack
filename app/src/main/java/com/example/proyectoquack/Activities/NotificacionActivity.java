@@ -7,6 +7,7 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
@@ -19,7 +20,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +30,14 @@ import com.example.proyectoquack.DB.ModelApi;
 import com.example.proyectoquack.Entidades.Usuario;
 import com.example.proyectoquack.MyReceiver;
 import com.example.proyectoquack.R;
+import com.example.proyectoquack.RWSettings;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Date;
 
 public class NotificacionActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -41,7 +51,7 @@ public class NotificacionActivity extends AppCompatActivity implements Navigatio
 
     private boolean doubleBackToExitPressedOnce = false;
 
-
+    private Switch swn, swg, swj;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +67,6 @@ public class NotificacionActivity extends AppCompatActivity implements Navigatio
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-
         navigationView.setNavigationItemSelectedListener(this);
 
         View headView = navigationView.getHeaderView(0);
@@ -68,18 +77,23 @@ public class NotificacionActivity extends AppCompatActivity implements Navigatio
         HeaderConductor_foto.setImageResource(R.drawable.user);
 
 
-        Context context = getApplicationContext();
 
+        final Context context = getApplicationContext();
+
+        /*
         long sistime = ((long)Math.floor((System.currentTimeMillis() +
                 900000/2)/900000) * 900000) + 900000;//para notificar en intervalos de 15 min
-
+         */
+        //notificaciones
         Intent notifyIntent = new Intent(this, MyReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast
                 (context, 0, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, /*sistime*/System.currentTimeMillis(),
-                15 * 1000 * 60 /* 60 * 24*/, pendingIntent);
+                15 * 1000 * 60/* 60 * 24*/, pendingIntent);
         //900000 milis = 15 min
+
+        /*
         Date d1 = new Date(2019,11,1,0,0),
                 d2 = new Date(2019,11,1,0,15),
                 d3 = new Date(2019,11,1,0,30,0),
@@ -89,6 +103,79 @@ public class NotificacionActivity extends AppCompatActivity implements Navigatio
                 +d3.getTime()+"\n"+d4.getTime()+"\n"
                 +System.currentTimeMillis()+"\n"
                 +sistime);//
+        */
+        final String activarNotificacion = "actnot.txt";
+        final String notifG = "ng.txt";
+        final String notifJ = "nj.txt";
+        boolean noti = RWSettings.read(activarNotificacion,context,true);
+        boolean gral = RWSettings.read(notifG,context,true);
+        boolean juna = RWSettings.read(notifJ,context,true);
+
+        swn = (Switch) findViewById(R.id.switch1);
+        swn.setChecked(noti);
+
+        swg = (Switch) findViewById(R.id.switch2);
+        swg.setChecked(gral);
+        swg.setEnabled(noti);
+
+        swj = (Switch) findViewById(R.id.switch3);
+        swj.setChecked(juna);
+        swj.setEnabled(noti);
+
+        swn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                RWSettings.flip(activarNotificacion,context);
+                swg.setEnabled(isChecked);
+                swj.setEnabled(isChecked);
+            }
+        });
+        swg.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                RWSettings.flip(notifG,context);
+            }
+        });
+        swj.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                RWSettings.flip(notifJ,context);
+            }
+        });
+        ///////////***************************
+        /*
+        try {//leer si notificaciones activadas
+            FileInputStream fis = openFileInput(activarNotificacion);
+            DataInputStream dis = new DataInputStream(fis);
+
+            Toast toast = Toast.makeText(context, "abierto", Toast.LENGTH_SHORT);
+            toast.show();
+
+            boolean actv = dis.readBoolean();
+
+            toast = Toast.makeText(context, "notif es "+actv, Toast.LENGTH_SHORT);
+            toast.show();
+
+            dis.close();
+        }catch (FileNotFoundException e){
+            //Toast toast = Toast.makeText(context, "no se encontró", Toast.LENGTH_SHORT);
+            //toast.show();
+            try{
+                //Toast toast2 = Toast.makeText(context, "crear", Toast.LENGTH_SHORT);
+                FileOutputStream fos = openFileOutput(activarNotificacion, MODE_PRIVATE);
+                DataOutputStream dos = new DataOutputStream(fos);
+                dos.writeBoolean(true);
+                dos.flush();
+                dos.close();
+            } catch (FileNotFoundException f){
+                //Toast toast2 = Toast.makeText(context, "no se creó", Toast.LENGTH_SHORT);
+                f.printStackTrace();
+            } catch (IOException f){
+                f.printStackTrace();
+            }
+            e.printStackTrace();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+         */
+        ///////////////**************************************************
 
     }
 
@@ -170,6 +257,5 @@ public class NotificacionActivity extends AppCompatActivity implements Navigatio
     }
 
 }
-
 
 
