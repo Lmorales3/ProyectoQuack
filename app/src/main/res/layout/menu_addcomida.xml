@@ -59,7 +59,7 @@
             android:textSize="24sp" />
 
         <RatingBar
-            android:id="@+id/ratingFila"
+            android:id="@+id/ratingComida"
             style="@style/quackRatingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
