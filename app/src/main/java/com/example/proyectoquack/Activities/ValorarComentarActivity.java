@@ -75,6 +75,7 @@ public class ValorarComentarActivity extends AppCompatActivity {
         modelApi = new ModelApi();
         modelApi.crearPublicacion(pub);
         Toast.makeText(this, "Su valoración ha sido emitida",Toast.LENGTH_LONG).show();
+        this.finish();
     }
 
     public void comidaJuna_valorar(View view){
