@@ -54,12 +54,12 @@
         </activity>
 
         <receiver
-            android:name=".MyReceiver"
+            android:name=".Notificaciones.MyReceiver"
             android:enabled="true"
             android:exported="false" >
         </receiver>
         <service
-            android:name=".MyNewIntentService"
+            android:name=".Notificaciones.MyNewIntentService"
             android:exported="false" >
         </service>
 

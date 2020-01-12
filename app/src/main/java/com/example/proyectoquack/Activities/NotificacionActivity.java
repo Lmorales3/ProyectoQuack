@@ -1,17 +1,12 @@
 package com.example.proyectoquack.Activities;
 
 import android.app.AlarmManager;
-import android.app.IntentService;
-import android.app.Notification;
 import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -28,17 +23,9 @@ import android.widget.Toast;
 
 import com.example.proyectoquack.DB.ModelApi;
 import com.example.proyectoquack.Entidades.Usuario;
-import com.example.proyectoquack.MyReceiver;
+import com.example.proyectoquack.Notificaciones.MyReceiver;
 import com.example.proyectoquack.R;
-import com.example.proyectoquack.RWSettings;
-
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Date;
+import com.example.proyectoquack.Notificaciones.RWSettings;
 
 public class NotificacionActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -80,10 +67,7 @@ public class NotificacionActivity extends AppCompatActivity implements Navigatio
 
         final Context context = getApplicationContext();
 
-        /*
-        long sistime = ((long)Math.floor((System.currentTimeMillis() +
-                900000/2)/900000) * 900000) + 900000;//para notificar en intervalos de 15 min
-         */
+        /*long sistime = ((long)Math.floor((System.currentTimeMillis() +900000/2)/900000) * 900000) + 900000;//para notificar en intervalos de 15 min*/
         //notificaciones
         Intent notifyIntent = new Intent(this, MyReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast
@@ -93,17 +77,6 @@ public class NotificacionActivity extends AppCompatActivity implements Navigatio
                 15 * 1000 * 60/* 60 * 24*/, pendingIntent);
         //900000 milis = 15 min
 
-        /*
-        Date d1 = new Date(2019,11,1,0,0),
-                d2 = new Date(2019,11,1,0,15),
-                d3 = new Date(2019,11,1,0,30,0),
-                d4 = new Date(2019,11,1,1,45,0);
-        TextView val1 = (TextView) findViewById(R.id.textView10);
-        val1.setText(""+d1.getTime()+"\n"+d2.getTime()+"\n"
-                +d3.getTime()+"\n"+d4.getTime()+"\n"
-                +System.currentTimeMillis()+"\n"
-                +sistime);//
-        */
         final String activarNotificacion = "actnot.txt";
         final String notifG = "ng.txt";
         final String notifJ = "nj.txt";
@@ -139,44 +112,6 @@ public class NotificacionActivity extends AppCompatActivity implements Navigatio
                 RWSettings.flip(notifJ,context);
             }
         });
-        ///////////***************************
-        /*
-        try {//leer si notificaciones activadas
-            FileInputStream fis = openFileInput(activarNotificacion);
-            DataInputStream dis = new DataInputStream(fis);
-
-            Toast toast = Toast.makeText(context, "abierto", Toast.LENGTH_SHORT);
-            toast.show();
-
-            boolean actv = dis.readBoolean();
-
-            toast = Toast.makeText(context, "notif es "+actv, Toast.LENGTH_SHORT);
-            toast.show();
-
-            dis.close();
-        }catch (FileNotFoundException e){
-            //Toast toast = Toast.makeText(context, "no se encontró", Toast.LENGTH_SHORT);
-            //toast.show();
-            try{
-                //Toast toast2 = Toast.makeText(context, "crear", Toast.LENGTH_SHORT);
-                FileOutputStream fos = openFileOutput(activarNotificacion, MODE_PRIVATE);
-                DataOutputStream dos = new DataOutputStream(fos);
-                dos.writeBoolean(true);
-                dos.flush();
-                dos.close();
-            } catch (FileNotFoundException f){
-                //Toast toast2 = Toast.makeText(context, "no se creó", Toast.LENGTH_SHORT);
-                f.printStackTrace();
-            } catch (IOException f){
-                f.printStackTrace();
-            }
-            e.printStackTrace();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-         */
-        ///////////////**************************************************
-
     }
 
     @Override
