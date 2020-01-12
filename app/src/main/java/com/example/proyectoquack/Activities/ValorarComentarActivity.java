@@ -72,6 +72,10 @@ public class ValorarComentarActivity extends AppCompatActivity {
         pub.setUser(user);
         pub.setContenido(coment);
         pub.setValoracion(valoracion);
+        if(valoracion >= 3){
+            // agregar a comidas favoritas
+            // hay que hacer la conexion a añadir la comida favorita en modelapi
+        }
         modelApi = new ModelApi();
         modelApi.crearPublicacion(pub);
         Toast.makeText(this, "Su valoración ha sido emitida",Toast.LENGTH_LONG).show();

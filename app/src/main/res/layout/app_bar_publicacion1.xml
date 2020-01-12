@@ -36,7 +36,9 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="30dp"
                     android:background="#FFEB3B"
-                    android:orientation="vertical">
+                    android:onClick="EscogerPublicacion"
+                    android:orientation="vertical"
+                    tools:ignore="OnClick">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -49,7 +51,7 @@
                             android:layout_height="78dp"
                             android:layout_marginLeft="30dp"
                             android:layout_marginTop="20dp"
-                            android:onClick="valorar_comida_normal"
+                            android:onClick="EscogerPublicacion"
                             app:srcCompat="@drawable/porotos"
                             tools:ignore="OnClick" />
 
@@ -92,7 +94,9 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom"
                             android:layout_weight="1"
-                            android:text="Ver mas" />
+                            android:onClick="onClickPublicacion"
+                            android:text="Ver mas"
+                            tools:ignore="OnClick" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -116,7 +120,7 @@
                             android:layout_height="78dp"
                             android:layout_marginLeft="30dp"
                             android:layout_marginTop="20dp"
-                            android:onClick="valorar_comida_normal"
+                            android:onClick="EscogerPublicacion"
                             app:srcCompat="@drawable/papasconpoio"
                             tools:ignore="OnClick" />
 
@@ -159,6 +163,8 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom"
                             android:layout_weight="1"
+                            android:onClick="onClickPublicacion"
+                            tools:ignore="OnClick"
                             android:text="Ver mas" />
                     </LinearLayout>
 
@@ -226,6 +232,8 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom"
                             android:layout_weight="1"
+                            android:onClick="onClickPublicacion"
+                            tools:ignore="OnClick"
                             android:text="Ver mas" />
                     </LinearLayout>
 
@@ -294,6 +302,8 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom"
                             android:layout_weight="1"
+                            android:onClick="onClickPublicacion"
+                            tools:ignore="OnClick"
                             android:text="Ver mas" />
                     </LinearLayout>
 
