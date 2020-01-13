@@ -11,100 +11,136 @@
         android:layout_height="match_parent"
         tools:context=".Activities.UsuarioActivity">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <android.support.design.widget.AppBarLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:theme="@style/AppTheme.AppBarOverlay">
+                android:orientation="vertical">
 
-                <android.support.v7.widget.Toolbar
-                    android:id="@+id/toolbar"
+                <android.support.design.widget.AppBarLayout
                     android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:background="?attr/colorPrimary"
-                    app:popupTheme="@style/AppTheme.PopupOverlay"
-                    app:title="Proyecto Quack" />
+                    android:layout_height="wrap_content"
+                    android:theme="@style/AppTheme.AppBarOverlay">
 
-            </android.support.design.widget.AppBarLayout>
+                    <android.support.v7.widget.Toolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:background="?attr/colorPrimary"
+                        app:popupTheme="@style/AppTheme.PopupOverlay"
+                        app:title="Proyecto Quack" />
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center|center_horizontal"
-                android:layout_marginTop="40dp"
-                android:gravity="center"
-                android:text="Comentario de la publicación"
-                android:textSize="24sp" />
+                </android.support.design.widget.AppBarLayout>
 
-            <ImageButton
-                android:id="@+id/foto_comida_valorada"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                app:srcCompat="@drawable/porotos" />
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|center_horizontal"
+                    android:layout_marginTop="40dp"
+                    android:gravity="center"
+                    android:text="Porotos muy buenos, lo pido de nuevo!"
+                    android:textSize="24sp" />
 
-            <EditText
-                android:id="@+id/comentar_comida"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="20dp"
-                android:width="300dp"
-                android:ems="10"
-                android:gravity="start|top"
-                android:hint="Comentario..."
-                android:inputType="textMultiLine"
-                android:maxLines="3" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="400dp"
+                    android:orientation="horizontal">
 
-            <RatingBar
-                android:id="@+id/ratingComida"
-                style="@style/quackRatingBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="20dp"
-                android:adjustViewBounds="true"
-                android:isIndicator="false"
-                android:numStars="5"
-                android:progressDrawable="@drawable/custom_progressbar"
-                android:rating="0.5"
-                android:scaleType="fitCenter"
-                android:scaleX="0.9"
-                android:scaleY="0.9"
-                android:stepSize="0.5"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="OnClick" />
+                    <ImageButton
+                        android:id="@+id/foto_comida_valorada"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        app:srcCompat="@drawable/porotos" />
 
-            <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="73dp"
-                android:layout_height="58dp"
-                android:layout_marginLeft="75dp"
-                android:background="#FFC107"
-                android:hapticFeedbackEnabled="false"
-                app:srcCompat="@android:drawable/ic_menu_camera" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:orientation="vertical">
 
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="115dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="220dp"
-                android:layout_marginTop="-55dp"
-                android:background="#FFC107"
-                android:onClick="publicar_valoracion"
-                android:text="Siguiente"
-                tools:ignore="OnClick" />
+                        <TextView
+                            android:id="@+id/textView5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="rosa"
+                            android:textStyle="bold" />
 
-        </LinearLayout>
+                        <TextView
+                            android:id="@+id/textView4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:text="10.0 QuackPoints" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="-350dp"
+                    android:layout_marginBottom="200dp"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/comentar_comida"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:width="300dp"
+                        android:ems="10"
+                        android:gravity="start|top"
+                        android:hint="Comentario..."
+                        android:inputType="textMultiLine"
+                        android:maxLines="3" />
+
+                    <RatingBar
+                        android:id="@+id/ratingComida"
+                        style="@style/quackRatingBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:adjustViewBounds="true"
+                        android:isIndicator="false"
+                        android:numStars="5"
+                        android:progressDrawable="@drawable/custom_progressbar"
+                        android:rating="0.5"
+                        android:scaleType="fitCenter"
+                        android:scaleX="0.9"
+                        android:scaleY="0.9"
+                        android:stepSize="0.5"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="OnClick" />
+
+                    <Button
+                        android:id="@+id/button4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginRight="50dp"
+                        android:background="#FFC107"
+                        android:text="Comentar"
+                        android:textColorLink="#FFC107" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
 
 
     </android.support.design.widget.CoordinatorLayout>
